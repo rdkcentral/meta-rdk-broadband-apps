@@ -29,52 +29,6 @@ def define_env(env):
 
         return df.to_markdown(index=False)
 
-    ### Macro to generate a table of contents from a specified base directory
-    @env.macro
-    def generate_toc(dir="docs"):
-        # Sanitize and standardize input
-        dir = dir.rstrip("/\\")
-        base_dir = "docs"  # Assuming this script runs from project root
-        if dir.startswith("docs/"):
-            rel_dir = dir[5:]  # Strip 'docs/' for relative paths in links
-        else:
-            rel_dir = dir
-
-        abs_path = os.path.join(base_dir, rel_dir)
-        if not os.path.exists(abs_path):
-            return f"**Error**: Path `{dir}` does not exist."
-
-        rows = []
-
-        for folder in sorted(os.listdir(abs_path)):
-            folder_path = os.path.join(abs_path, folder)
-            if not os.path.isdir(folder_path):
-                continue
-
-            links = []
-
-            for fname in sorted(os.listdir(folder_path)):
-                if fname.endswith(".md"):
-                    filepath = os.path.join(rel_dir, folder, fname).replace("\\", "/")
-                    title = camel_case_split(os.path.splitext(fname)[0])
-                    links.append(f"- [{title}]({filepath})")
-
-            folder_display = camel_case_split(folder)
-            links_cell = "<br>".join(links) if links else "-"
-            rows.append((folder_display, links_cell))
-
-        top_folder_heading = camel_case_split(os.path.basename(abs_path))
-        
-        table_lines = [
-            f"|  | {top_folder_heading} |",
-            "| --- | --- |"
-        ]
-
-        for folder, files in rows:
-            table_lines.append(f"| {folder} | {files} |")
-
-        return "\n".join(table_lines)
-
 def camel_case_split(s):
     """Split snake_case and camelCase strings into readable form.
        Capitalises first letter of each word only if it's lower case.
