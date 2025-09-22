@@ -1,8 +1,15 @@
 # meta-rdk-broadband-apps
 Meta layer to add the Broadband Apps Framework to your existing RDK image.
 
+[![Deploy MkDocs to GitHub Pages](https://github.com/rdkcentral/meta-rdk-broadband-apps/actions/workflows/deploy_docs.yml/badge.svg)](https://github.com/rdkcentral/meta-rdk-broadband-apps/actions/workflows/deploy_docs.yml)
+
+[![GitHub milestone details](https://img.shields.io/github/milestones/progress-percent/rdkcentral/meta-rdk-broadband-apps/2)](https://github.com/rdkcentral/meta-rdk-broadband-apps/milestone/2)
+
+[![GitHub milestone details](https://img.shields.io/github/milestones/progress-percent/rdkcentral/meta-rdk-broadband-apps/1)](https://github.com/rdkcentral/meta-rdk-broadband-apps/milestone/1)
+
+
 ## Documentation:
-See `docs/` folder or the live [GitHub Pages site](TODO).
+See `docs/` folder or the live [GitHub Pages site](https://rdkcentral.github.io/meta-rdk-broadband-apps/).
 
 
 ## Using This Repo
