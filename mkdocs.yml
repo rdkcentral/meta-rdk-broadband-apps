@@ -1,0 +1,77 @@
+site_name: RDK Broadband Apps Toolkit
+site_url: 
+
+repo_name: rdkcentral/meta-rdk-broadband-apps
+repo_url: https://github.com/rdkcentral/meta-rdk-broadband-apps
+
+nav:
+  - Getting Started: index.md
+      
+
+
+markdown_extensions:
+  - admonition                  # For callout boxes
+  - pymdownx.tabbed             # For code and content tabs
+  - pymdownx.tasklist           # For GitHub-style task lists [ ] [x]
+  - pymdownx.details            # For collapsible sections
+  - pymdownx.tilde              # For strikethrough and subscript/superscript
+  - pymdownx.keys               # For keyboard keys rendering
+  - footnotes                   # For footnote support [^1]
+  - attr_list                   # For attribute lists like { .class }
+  - tables                      # For GitHub-style tables
+  - toc:
+      toc_depth: 4
+      permalink: true           # Adds clickable anchor links to headers
+  - def_list
+  - md_in_html
+  - pymdownx.emoji:             # For emoji support :smile:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.superfences:       # For fenced code blocks (better than default)
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+plugins:
+  - search
+  - macros:
+      module_name: docs/custom_macros
+
+extra_css:
+  - stylesheets/extra.css
+
+theme:
+  name: material
+  features:
+    - navigation.footer
+    - navigation.sections
+    - toc.follow
+    - navigation.top
+    - content.code.copy
+    - content.code.annotate
+    - search.suggest
+    - search.highlight
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: cyan
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Inter
+    code: Fira Code

@@ -1,0 +1,55 @@
+name: Deploy MkDocs to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Trigger only when code is pushed to main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write  # Required for GitHub Pages deployment
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: comcast-ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install MkDocs and Dependencies
+        run: pip install -r docs/requirements.txt
+
+      - name: Build site
+        run: mkdocs build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site  # MkDocs outputs to ./site by default
+
+
+  deploy:
+    needs: build
+    runs-on: comcast-ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+        id: deployment
