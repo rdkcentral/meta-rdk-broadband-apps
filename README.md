@@ -32,3 +32,24 @@ pip install -r docs/requirements.txt
 mkdocs serve
 ```
 This will run a local server at http://127.0.0.1:8000/.
+
+
+
+## LCM (prpl) enablement via sub-manifest
+
+This layer provides:
+- `conf/layer.conf` – marks this repo as a BitBake layer and recommends `meta-amx` and `meta-lcm`.
+- `manifests/rdkbb-apps-lcm.xml` – manifest snippet to fetch prpl LCM dependencies.
+
+### How to consume in a product build
+
+1. **Include the sub-manifest in your product manifest repo**
+
+Copy `manifests/rdkbb-apps-lcm.xml` into your product **manifest** repo (same repo that holds your main manifest), then add:
+
+```xml
+<manifest>
+  <!-- your existing content -->
+  <include name="manifests/rdkbb-apps-lcm.xml"/>
+</manifest>
+
