@@ -43,13 +43,29 @@ This layer provides:
 
 ### How to consume in a product build
 
-1. **Include the sub-manifest in your product manifest repo**
+**A) With a product manifest (recommended)**  
+In your **product manifest repo** (the one you pass to `repo init -u …`):
 
-Copy `manifests/rdkbb-apps-lcm.xml` into your product **manifest** repo (same repo that holds your main manifest), then add:
+1. Copy `manifests/rdkbb-apps-lcm.xml` into `manifests/` of your product manifest repo.
+2. In your top manifest (e.g. `default.xml`) add:
+   ```xml
+   <remote name="github" fetch="https://github.com"/>
+   <project remote="github"
+            name="YOURORG/meta-rdk-broadband-apps"
+            path="meta-rdk-broadband-apps"
+            revision="main"/>
+   <include name="manifests/rdkbb-apps-lcm.xml"/>
 
-```xml
-<manifest>
-  <!-- your existing content -->
-  <include name="manifests/rdkbb-apps-lcm.xml"/>
-</manifest>
+
+3. Add Layers & Enable LCM
+ - In your Yocto build dir(build/ after source oe-init-build-env):
+ - conf/bblayers.conf
+
+BBLAYERS += " \
+  ${TOPDIR}/../meta-rdk-broadband-apps \
+  ${TOPDIR}/../meta-amx \
+  ${TOPDIR}/../meta-lcm \
+"
+
+
 
