@@ -4,7 +4,7 @@
 
   <!-- Bring in your toolkit layer (your fork/branch) -->
   <project remote="github"
-           name="YOURORG/meta-rdk-broadband-apps"
+           name="CSalaza73/meta-rdk-broadband-apps"
            path="meta-rdk-broadband-apps"
            revision="feat/lcm-submanifest-layercfg"/>
 
