@@ -7,6 +7,6 @@
     <project remote="prpl-foundation" name="meta-prpl" path="meta-prpl" revision="master"/>
     <project remote="prpl-foundation" name="meta-amx" path="meta-amx" revision="master"/>
     <project remote="prpl-foundation" name="meta-lcm" path="meta-lcm" revision="master"/>
-    <project remote="prpl-foundation" name="meta-prplmesh" path="meta-prplmesh" revision="master"/>
+
 </manifest>
 
