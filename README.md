@@ -32,3 +32,38 @@ pip install -r docs/requirements.txt
 mkdocs serve
 ```
 This will run a local server at http://127.0.0.1:8000/.
+
+
+
+## LCM (prpl) enablement via sub-manifest
+
+This layer provides:
+- `conf/layer.conf` – marks this repo as a BitBake layer and recommends `meta-amx` and `meta-lcm`.
+- `manifests/rdkbb-apps-lcm.xml` – manifest snippet to fetch prpl LCM dependencies.
+
+### How to consume in a product build
+
+**A) With a product manifest (recommended)**  
+In your **product manifest repo** (the one you pass to `repo init -u …`):
+
+1. Copy `manifests/rdkbb-apps-lcm.xml` into `manifests/` of your product manifest repo.
+2. In your top manifest (e.g. `default.xml`) add:
+   ```xml
+   <remote name="github" fetch="https://github.com"/>
+   <project remote="github"
+            name="YOURORG/meta-rdk-broadband-apps"
+            path="meta-rdk-broadband-apps"
+            revision="main"/>
+   <include name="manifests/rdkbb-apps-lcm.xml"/>
+
+
+3. Add Layers & Enable LCM
+ - In your Yocto build dir(build/ after source oe-init-build-env):
+ - conf/bblayers.conf
+
+BBLAYERS += " \
+  ${TOPDIR}/../meta-rdk-broadband-apps 
+"
+
+
+
