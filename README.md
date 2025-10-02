@@ -62,9 +62,7 @@ In your **product manifest repo** (the one you pass to `repo init -u …`):
  - conf/bblayers.conf
 
 BBLAYERS += " \
-  ${TOPDIR}/../meta-rdk-broadband-apps \
-  ${TOPDIR}/../meta-amx \
-  ${TOPDIR}/../meta-lcm \
+  ${TOPDIR}/../meta-rdk-broadband-apps 
 "
 
 
