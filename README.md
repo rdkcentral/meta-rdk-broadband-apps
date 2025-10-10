@@ -43,27 +43,24 @@ This layer provides:
 
 ### How to consume in a product build
 
-**A) With a product manifest (recommended)**  
-In your **product manifest repo** (the one you pass to `repo init -u …`):
+# 1) Initialize and sync sources as you normally do for your Yocto setup
+repo init -u <your usual manifest repo> [-m <their default manifest>]
+repo sync
 
-1. Copy `manifests/rdkbb-apps-lcm.xml` into `manifests/` of your product manifest repo.
-2. In your top manifest (e.g. `default.xml`) add:
-   ```xml
-   <remote name="github" fetch="https://github.com"/>
-   <project remote="github"
-            name="YOURORG/meta-rdk-broadband-apps"
-            path="meta-rdk-broadband-apps"
-            revision="main"/>
-   <include name="manifests/rdkbb-apps-lcm.xml"/>
+# 2) Install this repo’s sub-manifest (adds prpl layers)
+mkdir -p .repo/local_manifests
+cp manifests/rdkbb-apps-lcm.xml .repo/local_manifests/
+repo sync
 
+# 3) Enter the Yocto build environment
+source poky/oe-init-build-env
 
-3. Add Layers & Enable LCM
- - In your Yocto build dir(build/ after source oe-init-build-env):
- - conf/bblayers.conf
+# 4) Seed BBLAYERS from the provided sample
+cp ../conf/bblayers.conf.sample conf/bblayers.conf
 
-BBLAYERS += " \
-  ${TOPDIR}/../meta-rdk-broadband-apps 
-"
+# 5) (Optional) Pick a reference MACHINE for repeatable builds
+# echo 'MACHINE ?= "raspberrypi4-64"' >> conf/local.conf
 
-
+# 6) Build
+bitbake <your-image>
 
