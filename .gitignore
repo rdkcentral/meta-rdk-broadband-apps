@@ -1,2 +1,7 @@
 # mkdocs generated site
 site/
+/.repo/
+/meta-amx/
+/meta-lcm/
+/meta-prpl/
+/meta-prplmesh/
