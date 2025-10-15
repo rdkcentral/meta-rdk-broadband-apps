@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+    <remote name="prpl-foundation"
+            fetch="https://gitlab.com/prpl-foundation/prplrdkb/metalayers/"
+            review="https://gitlab.com/prpl-foundation/prplrdkb/metalayers/"/>
+
+    <project remote="prpl-foundation" name="meta-amx" path="meta-amx" revision="master"/>
+    <project remote="prpl-foundation" name="meta-lcm" path="meta-lcm" revision="master"/>
+
+</manifest>
+
