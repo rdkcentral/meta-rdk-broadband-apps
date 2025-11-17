@@ -1,0 +1,56 @@
+From 2ea3766b11dea64ac76ec4bf13eae2c2335a444e Mon Sep 17 00:00:00 2001
+From: Matthias Van Gestel <matthias.vangestel_ext@softathome.com>
+Date: Wed, 17 May 2023 15:10:09 +0200
+Subject: [PATCH] timingila-cthulhu: Add missing ExecutionUnitList info
+
+ExecutionUnitList is missing since timingila is not able
+to retrive the DUs corresponding to an EU.
+This commit adds the missing function for retrieving the
+DUs to allow updating the corresponding ExecutionUnitList
+field.
+
+Closes LCMFT-13 LCM-799
+---
+ src/timingila_cthulhu_main.c | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+
+diff --git a/src/timingila_cthulhu_main.c b/src/timingila_cthulhu_main.c
+index d2b5319..cea3a52 100644
+--- a/src/timingila_cthulhu_main.c
++++ b/src/timingila_cthulhu_main.c
+@@ -2743,6 +2743,24 @@ static void remove_slots(void) {
+     return;
+ }
+ 
++// Note: this function will always succeed, even if there was never a successful EU associated with the DU
++static int cthulhu_eu_get_dulist(UNUSED const char* function_name, amxc_var_t* args, amxc_var_t* ret) {
++    int rc = -1;
++    const char* euid = GET_CHAR(args, SM_DM_EU_EUID);
++    SAH_TRACEZ_INFO(ME, "Exec " TIMINGILA_CONTAINER_EU_GET_CORRESPONDING_DUS);
++    if(euid == NULL) {
++        SAH_TRACEZ_ERROR(ME, "Missing " SM_DM_EU_EUID);
++        goto exit;
++    }
++
++    amxc_var_set_type(ret, AMXC_VAR_ID_LIST);
++    amxc_var_add(cstring_t, ret, euid);
++
++    rc = 0;
++exit:
++    return rc;
++}
++
+ static int cthulhu_adapter_init(UNUSED const char* function_name, UNUSED amxc_var_t* args, amxc_var_t* ret) {
+     int rc = -1;
+     amxc_var_t* var_dm = NULL;
+@@ -2789,6 +2807,7 @@ AMXM_CONSTRUCTOR module_init(void) {
+     amxm_module_add_function(mod, TIMINGILA_CONTAINER_EE_DESCRIPTION, cthulhu_ee_description);
+     amxm_module_add_function(mod, TIMINGILA_CONTAINER_INIT, cthulhu_adapter_init);
+     amxm_module_add_function(mod, TIMINGILA_CONTAINER_EE_MODIFYAVAILABLEROLES, cthulhu_ee_modifyavailableroles);
++    amxm_module_add_function(mod, TIMINGILA_CONTAINER_EU_GET_CORRESPONDING_DUS, cthulhu_eu_get_dulist);
+     init_slots();
+     wait_and_connect_cthulhu();
+ 
+-- 
+2.43.0
+
