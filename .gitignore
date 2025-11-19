@@ -5,3 +5,7 @@ site/
 /meta-lcm/
 /meta-prpl/
 /meta-prplmesh/
+
+# Python cache
+__pycache__/
+*.pyc

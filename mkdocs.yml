@@ -5,7 +5,13 @@ repo_name: rdkcentral/meta-rdk-broadband-apps
 repo_url: https://github.com/rdkcentral/meta-rdk-broadband-apps
 
 nav:
-  - Getting Started: index.md
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Data Models:
+    - TR-369/USP Data Models: tr369-usp-data-models.md
+    - TR-69/CWMP Data Models: tr69-cwmp-data-models.md
+  - Guides:
+    - Managing Containerized Apps: howto-manage-apps.md
       
 
 
