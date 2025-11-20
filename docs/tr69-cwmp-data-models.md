@@ -9,7 +9,10 @@ This page documents the backwards-compatible TR-69 (CWMP) data models supported 
 
 TR-069 (CWMP - CPE WAN Management Protocol) is a widely-deployed protocol for remote management of customer-premises equipment (CPE). While TR-369 (USP) is the modern successor, many deployments still require TR-069 compatibility.
 
-The `meta-rdk-broadband-apps` layer maintains backwards compatibility with key TR-069 data models to support legacy management systems and gradual migration paths.
+The `meta-rdk-broadband-apps` layer maintains backwards compatibility with key TR-069 data models to support legacy management systems and gradual migration paths for both:
+
+- **DAC**: Dobby and DSM utilities from [meta-rdk](https://github.com/rdkcentral/meta-rdk)
+- **LCM**: Lifecycle Management from [prplLCM](https://gitlab.com/prpl-foundation/prplrdkb/metalayers)
 
 ## Backwards Compatibility
 
@@ -48,6 +51,7 @@ See the [TR-369/USP Data Models](tr369-usp-data-models.md) page for information 
 - [TR-069 Specification](https://www.broadband-forum.org/technical/download/TR-069.pdf) - Official CWMP specification
 - [Broadband Forum](https://www.broadband-forum.org/) - Standards organization
 - [Getting Started Guide](getting-started.md) - How to integrate this layer into your project
+- [TR-369/USP Data Models](tr369-usp-data-models.md) - Modern USP data models
 
 ## Contributing
 

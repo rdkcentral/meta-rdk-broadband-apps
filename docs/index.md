@@ -6,22 +6,23 @@ Meta layer to add the Broadband Apps Framework to your existing RDK image.
 
 This Yocto/OpenEmbedded meta-layer provides containerization support for RDK (Reference Design Kit) broadband devices. It enables you to deploy and manage containerized applications using either:
 
-- **DAC (Dobby Application Container)** - The default OCI-compliant container runtime
-- **LCM (Lightweight Container Manager)** - The prpl Foundation's alternative container manager
+- **DAC** - Dobby and DSM utilities from [meta-rdk](https://github.com/rdkcentral/meta-rdk)
+- **LCM** - Lifecycle Management from [prplLCM](https://gitlab.com/prpl-foundation/prplrdkb/metalayers) (prpl Foundation's prplOS project)
 
 ## Quick Links
 
 ### Getting Started
 - [**Getting Started Guide**](getting-started.md) - Complete setup instructions for integrating this layer into your RDK project
 - Build with DAC or LCM container runtime
-- Verify layer integration
+- Configure using `RDK_BB_APPS_TOOLKIT_CRUNTIME` variable
 
 ### Data Models
+- [**Device.SoftwareModules**](device-softwaremodules.md) - Lifecycle management via TR-369/USP data model
 - [**TR-369/USP Data Models**](tr369-usp-data-models.md) - Supported USP data models for remote management
 - [**TR-69/CWMP Data Models**](tr69-cwmp-data-models.md) - Backwards-compatible CWMP data models
 
 ### Guides & Tutorials
-- [**How-to: Managing Containerized Apps**](howto-manage-apps.md) - Comprehensive guide for deploying and managing containers with DAC or LCM
+- [**How-to: Managing Containerized Apps**](howto-manage-apps.md) - Guide for deploying and managing containers (coming soon)
 
 ## Reference Hardware
 
@@ -30,8 +31,8 @@ All tutorials and guides in this documentation use the **Banana Pi BPI-R4** as t
 ## Features
 
 - ✅ Support for both DAC and LCM container runtimes
-- ✅ OCI-compliant container support (DAC)
-- ✅ Integration with prpl Foundation's LCM stack
+- ✅ OCI-compliant container support via DAC (Dobby)
+- ✅ Integration with prpl Foundation's LCM stack (prplLCM)
 - ✅ TR-369/USP remote management capabilities
 - ✅ Backwards compatibility with TR-69/CWMP
 - ✅ Yocto/OpenEmbedded integration
