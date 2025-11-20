@@ -7,7 +7,7 @@ This page documents the Device.SoftwareModules data model from the TR-369/USP sp
 
 ## Overview
 
-The Device.SoftwareModules data model, as defined in the [TR-369 USP specification](https://usp.technology/), provides a standardized interface for lifecycle management of software modules, including containerized applications, on CPE devices.
+The Device.SoftwareModules data model, as defined in the [TR-369 USP specification](https://usp.technology/specification/#sec:software-module-management), provides a standardized interface for lifecycle management of software modules, including containerized applications, on CPE devices.
 
 This data model enables remote management systems to:
 
@@ -43,8 +43,8 @@ Detailed parameter descriptions will be added in future updates.
 
 This layer provides Device.SoftwareModules support for both:
 
-- **DAC**: Dobby and DSM utilities from [meta-rdk](https://github.com/rdkcentral/meta-rdk)
-- **LCM**: Lifecycle Management from [prplLCM](https://gitlab.com/prpl-foundation/prplrdkb/metalayers)
+- **DAC**: Dobby and DSM utilities from [meta-rdk](https://github.com/rdkcentral/meta-rdk/tree/develop/recipes-containers)
+- **LCM**: Lifecycle Management from [prplLCM](https://gitlab.com/prpl-foundation/prplrdkb/metalayers/meta-lcm)
 
 ## Related Resources
 
