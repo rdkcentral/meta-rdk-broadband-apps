@@ -7,6 +7,8 @@ repo_url: https://github.com/rdkcentral/meta-rdk-broadband-apps
 nav:
   - Home: index.md
   - Getting Started: getting-started.md
+  - System Architecture: architecture.md
+  - Acceptance Testing: acceptance-testing.md
   - Data Models:
     - Device.SoftwareModules: device-softwaremodules.md
     - TR-369/USP Data Models: tr369-usp-data-models.md
