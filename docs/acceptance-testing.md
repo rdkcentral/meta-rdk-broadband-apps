@@ -143,7 +143,7 @@ Device.SoftwareModules.ExecEnv.1.*
 #### Test 3: Install Container from OCI Registry
 
 ```bash
-# Install a container image from Docker Hub
+# Install a container image from an OCI registry
 ba-cli 'Device.SoftwareModules.InstallDU( \
     URL = "docker://index.docker.io/piotrnakraszewicz/alpine64:latest", \
     ExecutionEnvRef = "Device.SoftwareModules.ExecEnv.1." )'

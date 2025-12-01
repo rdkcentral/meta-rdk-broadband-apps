@@ -106,7 +106,7 @@ DAC applications are deployed as **OCI bundles** containing:
 
 LCM applications are deployed as **OCI images** that are:
 
-- Pulled from OCI-compliant registries (e.g., Docker Hub)
+- Pulled from OCI-compliant registries
 - Automatically converted to LXC containers
 - Managed via TR-369 data model
 

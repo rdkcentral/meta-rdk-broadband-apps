@@ -59,7 +59,7 @@ rbuscli method_values "Device.SoftwareModules.DeploymentUnit.1.Uninstall()" \
 LCM provides the `ba-cli` tool for container management:
 
 ```bash
-# Install a deployment unit from Docker registry
+# Install a deployment unit from OCI registry
 ba-cli 'Device.SoftwareModules.InstallDU( \
     URL = "docker://index.docker.io/user/image:latest", \
     ExecutionEnvRef = "Device.SoftwareModules.ExecEnv.1." )'

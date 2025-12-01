@@ -20,7 +20,6 @@ Before building apps, ensure you have:
 
 - Completed the [Installing the Toolkit](installing-toolkit.md) guide
 - A built RDK image with either DAC or LCM support
-- Development environment with container tools (Docker, Podman, or buildah)
 
 ## Building Apps for DAC
 
@@ -48,8 +47,7 @@ Coming soon: Step-by-step instructions for creating OCI bundles for DAC.
 
 LCM applications use standard OCI images that can be:
 
-- Built locally using Docker/Podman
-- Pulled from container registries (Docker Hub, etc.)
+- Built locally or pulled from container registries
 - Stored in private registries
 
 ### Creating a Simple LCM Application
@@ -69,11 +67,9 @@ Details and build instructions coming soon.
 
 ## Best Practices
 
-1. **Use minimal base images** - Reduce image size and attack surface
-2. **Version your applications** - Use semantic versioning for releases
-3. **Test locally first** - Validate on development hardware before deployment
-4. **Document dependencies** - Clearly specify required libraries and services
-5. **Security scanning** - Scan images for vulnerabilities before deployment
+1. **Version your applications** - Use semantic versioning for releases
+2. **Test locally first** - Validate on development hardware before deployment
+3. **Document dependencies** - Clearly specify required libraries and services
 
 ## Related Resources
 
