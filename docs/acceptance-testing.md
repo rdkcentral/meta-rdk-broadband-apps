@@ -316,6 +316,6 @@ Future testing will include:
 
 ## Related Resources
 
-- [Getting Started](getting-started.md) - Build instructions
+- [Installing the Toolkit](installing-toolkit.md) - Build instructions
 - [System Architecture](architecture.md) - Architecture overview
 - [Data Models](data-models.md) - Data model specification

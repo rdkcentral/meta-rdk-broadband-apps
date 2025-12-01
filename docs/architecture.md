@@ -91,7 +91,7 @@ RDK_BB_APPS_TOOLKIT_CRUNTIME = "DAC"
 RDK_BB_APPS_TOOLKIT_CRUNTIME = "LCM"
 ```
 
-See [Getting Started](getting-started.md) for complete build instructions.
+See [Installing the Toolkit](installing-toolkit.md) for complete build instructions.
 
 ## Application Deployment
 
@@ -152,7 +152,7 @@ Future versions will support remote management via USP Controller using:
 
 ## Related Resources
 
-- [Getting Started](getting-started.md) - Build instructions for DAC and LCM
+- [Installing the Toolkit](installing-toolkit.md) - Build instructions for DAC and LCM
 - [Acceptance Testing](acceptance-testing.md) - Testing procedures
+- [Deploying Apps](deploying-apps.md) - Application deployment and management
 - [Data Models](data-models.md) - Data model specification
-- [Getting Started](getting-started.md) - Build instructions for DAC and LCM

@@ -12,15 +12,16 @@ This Yocto/OpenEmbedded meta-layer provides containerization support for RDK (Re
 ## Quick Links
 
 ### Getting Started
-- [**Getting Started Guide**](getting-started.md) - Complete build instructions for DAC and LCM on Raspberry Pi 4 and Banana Pi BPI-R4
+- [**Installing the Toolkit**](installing-toolkit.md) - Complete build instructions for DAC and LCM on Raspberry Pi 4 and Banana Pi BPI-R4
+- [**Building Apps**](building-apps.md) - Learn how to create containerized applications
+- [**Deploying Apps**](deploying-apps.md) - Deploy and manage applications on your device
+
+### Architecture & Testing
 - [**System Architecture**](architecture.md) - Reference system architecture and components
 - [**Acceptance Testing**](acceptance-testing.md) - Testing procedures and validation
 
 ### Data Models
 - [**Data Models**](data-models.md) - TR-369/USP data models for lifecycle management, including Software Modules, Deployment Units, Execution Units, and Execution Environments
-
-### Guides & Tutorials
-- [**How-to: Managing Containerized Apps**](howto-manage-apps.md) - Guide for deploying and managing containers (coming soon)
 
 ## Reference Hardware
 

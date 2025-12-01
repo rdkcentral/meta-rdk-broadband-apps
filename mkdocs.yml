@@ -6,12 +6,13 @@ repo_url: https://github.com/rdkcentral/meta-rdk-broadband-apps
 
 nav:
   - Home: index.md
-  - Getting Started: getting-started.md
+  - Getting Started:
+    - Installing the Toolkit: installing-toolkit.md
+    - Building Apps: building-apps.md
+    - Deploying Apps: deploying-apps.md
   - System Architecture: architecture.md
   - Acceptance Testing: acceptance-testing.md
   - Data Models: data-models.md
-  - Guides:
-    - Managing Containerized Apps: howto-manage-apps.md
       
 
 

@@ -213,7 +213,7 @@ ba-cli 'Device.SoftwareModules.DeploymentUnit.1.Uninstall( \
 - [TR-369 USP Specification](https://usp.technology/specification/) - Official specification
 - [Lifecycle Management](https://usp.technology/specification/#sec:lifecycle-management) - Detailed specification
 - [Broadband Forum](https://www.broadband-forum.org/) - Standards organization
-- [Getting Started Guide](getting-started.md) - How to integrate this layer
+- [Installing the Toolkit](installing-toolkit.md) - How to integrate this layer
 - [System Architecture](architecture.md) - Architecture overview
 - [Acceptance Testing](acceptance-testing.md) - Testing procedures
 

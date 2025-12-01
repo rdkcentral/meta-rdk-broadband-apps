@@ -1,6 +1,6 @@
-# Getting Started
+# Installing the Toolkit
 
-This guide provides detailed instructions for building and configuring RDK Broadband devices with the Broadband Apps Framework for MVP 2025.
+This guide provides detailed instructions for installing and configuring the RDK Broadband Apps Toolkit on your build system.
 
 ## Overview
 
@@ -227,6 +227,8 @@ RDK_BB_APPS_TOOLKIT_CRUNTIME="LCM"
 
 ## Next Steps
 
+- [Building Apps](building-apps.md) - Learn how to create containerized applications
+- [Deploying Apps](deploying-apps.md) - Deploy and manage applications on your device
 - [System Architecture](architecture.md) - Understanding the reference system architecture
 - [Acceptance Testing](acceptance-testing.md) - Testing and validation procedures
 - [Data Models](data-models.md) - TR-369/USP data models for lifecycle management
