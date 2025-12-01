@@ -17,9 +17,7 @@ This Yocto/OpenEmbedded meta-layer provides containerization support for RDK (Re
 - [**Acceptance Testing**](acceptance-testing.md) - Testing procedures and validation
 
 ### Data Models
-- [**Device.SoftwareModules**](device-softwaremodules.md) - Lifecycle management via TR-369/USP data model
-- [**TR-369/USP Data Models**](tr369-usp-data-models.md) - Supported USP data models for remote management
-- [**TR-69/CWMP Data Models**](tr69-cwmp-data-models.md) - Backwards-compatible CWMP data models
+- [**Data Models**](data-models.md) - TR-369/USP data models for lifecycle management, including Software Modules, Deployment Units, Execution Units, and Execution Environments
 
 ### Guides & Tutorials
 - [**How-to: Managing Containerized Apps**](howto-manage-apps.md) - Guide for deploying and managing containers (coming soon)

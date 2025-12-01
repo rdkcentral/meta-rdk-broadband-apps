@@ -70,7 +70,7 @@ Both DAC and LCM implementations provide support for the TR-369 **Device.Softwar
 - Status monitoring and reporting
 - Configuration management
 
-See [Device.SoftwareModules](device-softwaremodules.md) for detailed data model documentation.
+See [Data Models](data-models.md) for detailed data model documentation.
 
 ## Supported Platforms
 
@@ -154,5 +154,5 @@ Future versions will support remote management via USP Controller using:
 
 - [Getting Started](getting-started.md) - Build instructions for DAC and LCM
 - [Acceptance Testing](acceptance-testing.md) - Testing procedures
-- [Device.SoftwareModules](device-softwaremodules.md) - Data model specification
-- [TR-369/USP Data Models](tr369-usp-data-models.md) - USP protocol support
+- [Data Models](data-models.md) - Data model specification
+- [Getting Started](getting-started.md) - Build instructions for DAC and LCM

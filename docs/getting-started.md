@@ -229,6 +229,4 @@ RDK_BB_APPS_TOOLKIT_CRUNTIME="LCM"
 
 - [System Architecture](architecture.md) - Understanding the reference system architecture
 - [Acceptance Testing](acceptance-testing.md) - Testing and validation procedures
-- [Device.SoftwareModules Data Model](device-softwaremodules.md) - Lifecycle management via TR-369/USP
-- [TR-369/USP Data Models](tr369-usp-data-models.md) - Supported USP data models
-- [TR-69/CWMP Data Models](tr69-cwmp-data-models.md) - Backwards compatible CWMP data models
+- [Data Models](data-models.md) - TR-369/USP data models for lifecycle management

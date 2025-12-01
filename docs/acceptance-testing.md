@@ -318,4 +318,4 @@ Future testing will include:
 
 - [Getting Started](getting-started.md) - Build instructions
 - [System Architecture](architecture.md) - Architecture overview
-- [Device.SoftwareModules](device-softwaremodules.md) - Data model specification
+- [Data Models](data-models.md) - Data model specification

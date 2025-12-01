@@ -17,10 +17,9 @@ This section will include:
 - Monitoring and debugging
 - Best practices for production deployments
 
-For lifecycle management via data models, see the [Device.SoftwareModules](device-softwaremodules.md) documentation.
+For lifecycle management via data models, see the [Data Models](data-models.md) documentation.
 
 ## Related Resources
 
 - [Getting Started Guide](getting-started.md) - Initial setup instructions
-- [Device.SoftwareModules](device-softwaremodules.md) - Lifecycle management via TR-369/USP
-- [TR-369/USP Data Models](tr369-usp-data-models.md) - Remote management via USP
+- [Data Models](data-models.md) - TR-369/USP data models for lifecycle management
