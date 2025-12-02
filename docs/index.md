@@ -12,6 +12,7 @@ This Yocto/OpenEmbedded meta-layer provides containerization support for RDK (Re
 ## Quick Links
 
 ### Getting Started
+- [**Device Prerequisites**](device-prerequisites.md) - Hardware and storage requirements for containerized applications
 - [**Installing the Toolkit**](installing-toolkit.md) - Complete build instructions for DAC and LCM on Raspberry Pi 4 and Banana Pi BPI-R4
 - [**Building Apps**](building-apps.md) - Learn how to create containerized applications
 - [**Deploying Apps**](deploying-apps.md) - Deploy and manage applications on your device

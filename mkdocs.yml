@@ -7,6 +7,7 @@ repo_url: https://github.com/rdkcentral/meta-rdk-broadband-apps
 nav:
   - Home: index.md
   - Getting Started:
+    - Device Prerequisites: device-prerequisites.md
     - Installing the Toolkit: installing-toolkit.md
     - Building Apps: building-apps.md
     - Deploying Apps: deploying-apps.md
