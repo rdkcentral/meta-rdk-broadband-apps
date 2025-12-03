@@ -4,8 +4,8 @@
             fetch="https://gitlab.com/prpl-foundation/prplrdkb/metalayers/"
             review="https://gitlab.com/prpl-foundation/prplrdkb/metalayers/"/>
 
-    <project remote="prpl-foundation" name="meta-amx" path="meta-amx" revision="prplos-v3.1.0"/>
-    <project remote="prpl-foundation" name="meta-lcm" path="meta-lcm" revision="prplos-v3.1.0"/>
+    <project remote="prpl-foundation" name="meta-amx" path="meta-amx" revision="refs/tags/prplos-v3.1.0"/>
+    <project remote="prpl-foundation" name="meta-lcm" path="meta-lcm" revision="refs/tags/prplos-v3.1.0"/>
 
 </manifest>
 
