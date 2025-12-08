@@ -1,17 +1,84 @@
 # Data Models
 
-This page documents the data models supported by the RDK Broadband Apps Framework for lifecycle management of containerized applications.
+This page documents the data models supported by the RDK Broadband Apps Toolkit for managing the lifecycle of containerized applications. 
 
 ## Overview
 
-The RDK Broadband Apps Framework implements TR-369 (USP - User Services Platform) data models for managing, monitoring, and controlling containerized applications on CPE devices. This follows the Broadband Forum specification for lifecycle management.
+The RDK Broadband Apps Toolkit primarily implements the standard TR-369 (USP - User Services Platform) data models for managing, monitoring, and controlling containerized applications on CPE devices, following the Broadband Forum specification for lifecycle management.
 
-## Container Runtime Support
+Additionally, provisions have been made to bring feature parity to legacy remote management standards such as TR-069 (CPE WAN Management Protocol (CWMP)) as used by ACS (Auto Configuration Server) solutions. This has been done by defining a **new, custom data model** that can be utilised without requiring support for method invocation or notification events. 
 
-This layer provides data model support for both:
+## Contributing
 
-- **DAC**: Dobby and DSM utilities from [meta-rdk](https://github.com/rdkcentral/meta-rdk/tree/develop/recipes-containers)
-- **LCM**: Lifecycle Management from [prplLCM](https://gitlab.com/prpl-foundation/prplrdkb/metalayers/meta-lcm)
+If you have implemented additional data models or have corrections to this documentation, please contribute by opening a pull request or issue on the [GitHub repository](https://github.com/rdkcentral/meta-rdk-broadband-apps).
+
+## Data Models
+
+<details>
+<summary>TR-369/USP Compatible Data Models</summary>
+
+!!! tip "Note"
+    This is up to date as of [TR-181 v2.20.1 (USP)](https://usp-data-models.broadband-forum.org/tr-181-2-20-1-usp.html). 
+
+```bash
+Device.SoftwareModules.
+├── InstallDU()                     # Method - not available in CWMP-compatible version
+├── DUStateChange!                  # Notification - not available in CWMP-compatible version
+├── ExecEnvClass.{i}.               # ~Execution Environments~
+│   ├── AddExecEnv()                # Method - not available in CWMP-compatible version
+│   └── Capability.{i}.
+│       └── Specification           
+├── ExecEnv.{i}.                    # ~Execution Environments~
+│   ├── SetRunLevel()               # Method - not available in CWMP-compatible version
+│   ├── Reset()                     # Method - not available in CWMP-compatible version
+│   ├── Enable
+│   ├── Status
+│   ├── Name
+│   ├── Type
+│   ├── InitialRunLevel
+│   ├── CurrentRunLevel
+│   ├── AllocatedDiskSpace
+│   ├── AvailableDiskSpace
+│   ├── AllocatedMemory
+│   ├── AvailableMemory
+│   └── ...
+├── DeploymentUnit.{i}.             # ~Deployment Units~
+│   ├── Update()                    # Method - not available in CWMP-compatible version
+│   ├── Uninstall()                 # Method - not available in CWMP-compatible version
+│   ├── UUID
+│   ├── DUID
+│   ├── Name
+│   ├── Status
+│   ├── Resolved
+│   ├── URL
+│   ├── ExecutionUnitList
+│   ├── ExecutionEnvRef
+│   └── ...
+└── ExecutionUnit.{i}.              # ~Execution Units~
+    ├── SetRequestedState()         # Method - not available in CWMP-compatible version
+    ├── Restart()                   # Method - not available in CWMP-compatible version
+    ├── EUID
+    ├── Name
+    ├── ExecEnvLabel
+    ├── Status
+    ├── ExecutionFaultCode
+    ├── ExecutionFaultMessage
+    ├── AutoStart
+    ├── RunLevel
+    ├── DiskSpaceInUse
+    ├── MemoryInUse
+    └── ...
+```
+</details>
+
+<details>
+<summary>TR-069/CWMP Compatible Data Models</summary>
+
+```bash
+Device.X_RDK_SoftwareModules.
+└── ...                             # COMING SOON...
+```
+</details>
 
 ## Lifecycle Management
 
@@ -21,11 +88,11 @@ Lifecycle management follows the [Broadband Forum TR-369 USP specification](http
 
 [Software Modules](https://usp.technology/specification/#sec:software-modules) provide the framework for managing containerized applications through standardized data model objects.
 
-#### Deployment Units (DUs)
+### Deployment Units (DUs)
 
 [Deployment Units](https://usp.technology/specification/#sec:deployment-units) represent installable software packages (e.g., OCI bundles or images) that can be deployed to the device.
 
-**Deployment Unit Lifecycle State Machine:**
+#### Deployment Unit Lifecycle State Machine:
 
 The DU lifecycle follows a state machine with the following states:
 
@@ -33,18 +100,16 @@ The DU lifecycle follows a state machine with the following states:
 - **Uninstalled**: DU has been removed from the device
 - **Failed**: DU installation or operation failed
 
-Operations:
-- `InstallDU()`: Install a new deployment unit from a URL
-- `Update()`: Update an existing deployment unit
-- `Uninstall()`: Remove a deployment unit from the device
+#### Operations:
+- `Device.SoftwareModules.InstallDU()`: Install a new deployment unit from a URL
+- `Device.SoftwareModules.DeploymentUnit.{i}.Update()`: Update an existing deployment unit
+- `Device.SoftwareModules.DeploymentUnit.{i}.Uninstall()`: Remove a deployment unit from the device
 
-**Data Model Path:** `Device.SoftwareModules.DeploymentUnit.{i}.`
-
-#### Execution Units (EUs)
+### Execution Units (EUs)
 
 [Execution Units](https://usp.technology/specification/#sec:execution-units) represent running instances of deployed software (containers).
 
-**Execution Unit Lifecycle State Machine:**
+#### Execution Unit Lifecycle State Machine:
 
 The EU lifecycle follows a state machine with the following states:
 
@@ -54,17 +119,15 @@ The EU lifecycle follows a state machine with the following states:
 - **Stopping**: EU is in the process of stopping
 - **Failed**: EU failed to start or encountered a runtime error
 
-Operations:
-- `SetRequestedState()`: Request state transition (Active, Idle, etc.)
-- `Restart()`: Restart the execution unit
-
-**Data Model Path:** `Device.SoftwareModules.ExecutionUnit.{i}.`
+#### Operations:
+- `Device.SoftwareModules.ExecutionUnit.{i}.SetRequestedState()`: Request state transition (Active, Idle, etc.)
+- `Device.SoftwareModules.ExecutionUnit.{i}.Restart()`: Restart the execution unit
 
 ### Execution Environments (EEs)
 
 [Execution Environments](https://usp.technology/specification/#sec:execution-environment-concepts) represent the container runtime environments (e.g., Dobby daemon, LXC runtime) where execution units run.
 
-**Execution Environment Lifecycle State Machine:**
+#### Execution Environment Lifecycle State Machine:
 
 The EE lifecycle follows a state machine with the following states:
 
@@ -74,25 +137,32 @@ The EE lifecycle follows a state machine with the following states:
 - **Stopping**: EE is shutting down
 - **Failed**: EE encountered an error
 
-**Data Model Path:** `Device.SoftwareModules.ExecEnv.{i}.`
+#### Operations:
+- `Device.SoftwareModules.ExecEnv.{i}.Restart()`: Restart the execution environment
 
-#### Application Data Volumes
+### Application Data Volumes
 
 [Application Data Volumes](https://usp.technology/specification/#sec:application-data-volumes) provide persistent storage for containerized applications, allowing data to survive container restarts and upgrades.
 
-Features:
+#### Features:
 - Persistent data storage across container lifecycle
 - Volume mounting into containers
 - Data retention policies
 
-#### Signing Deployment Units
+#### Related Data Models
+- `Device.SoftwareModules.ExecEnv.{i}.ApplicationData`
+
+### Signing Deployment Units
 
 [Signing Deployment Units](https://usp.technology/specification/#sec:signing-deployment-units) provides security mechanisms to verify the authenticity and integrity of software modules before installation.
 
-Features:
+#### Features:
 - Cryptographic signature verification
 - Certificate chain validation
 - Trust store management
+
+#### Related Data Models
+- `Device.Security.Certificate`
 
 ### Fault Model
 
@@ -126,97 +196,3 @@ Common EU fault codes:
 - `Device.SoftwareModules.ExecutionUnit.{i}.ExecutionFaultCode`
 - `Device.SoftwareModules.ExecutionUnit.{i}.ExecutionFaultMessage`
 
-## Data Model Hierarchy
-
-The complete object hierarchy for software module management:
-
-```
-Device.SoftwareModules.
-├── ExecEnv.{i}.                    # Execution Environments
-│   ├── Enable
-│   ├── Status
-│   ├── Type
-│   ├── InitialRunLevel
-│   ├── CurrentRunLevel
-│   └── ...
-├── DeploymentUnit.{i}.             # Deployment Units
-│   ├── UUID
-│   ├── DUID
-│   ├── Name
-│   ├── Status
-│   ├── Resolved
-│   ├── URL
-│   ├── ExecutionUnitList
-│   ├── ExecutionEnvRef
-│   └── ...
-└── ExecutionUnit.{i}.              # Execution Units
-    ├── EUID
-    ├── Name
-    ├── Status
-    ├── RequestedState
-    ├── ExecutionFaultCode
-    ├── ExecutionFaultMessage
-    ├── AutoStart
-    ├── RunLevel
-    ├── ExecutionEnvRef
-    └── ...
-```
-
-## Command-Line Interface Examples
-
-### DAC Commands
-
-```bash
-# Query all SoftwareModules
-dmcli eRT getv Device.SoftwareModules.
-
-# Install a deployment unit
-rbuscli method_values "Device.SoftwareModules.InstallDU()" \
-    URL string http://example.com/app.tar.gz \
-    ExecutionEnvRef string default
-
-# Start an execution unit
-rbuscli method_values "Device.SoftwareModules.ExecutionUnit.1.SetRequestedState()" \
-    RequestedState string Active
-
-# Uninstall a deployment unit
-rbuscli method_values "Device.SoftwareModules.DeploymentUnit.1.Uninstall()" \
-    RetainData bool false
-```
-
-### LCM Commands
-
-```bash
-# Query all SoftwareModules
-ba-cli 'Device.SoftwareModules.?'
-
-# Install a deployment unit from OCI registry
-ba-cli 'Device.SoftwareModules.InstallDU( \
-    URL = "docker://index.docker.io/user/image:latest", \
-    ExecutionEnvRef = "Device.SoftwareModules.ExecEnv.1." )'
-
-# Start an execution unit
-ba-cli 'Device.SoftwareModules.ExecutionUnit.1.SetRequestedState( \
-    RequestedState = "Active" )'
-
-# Stop an execution unit
-ba-cli 'Device.SoftwareModules.ExecutionUnit.1.SetRequestedState( \
-    RequestedState = "Idle" )'
-
-# Uninstall a deployment unit
-ba-cli 'Device.SoftwareModules.DeploymentUnit.1.Uninstall( \
-    RetainData = "false" )'
-```
-
-## Related Resources
-
-- [TR-369 USP Specification](https://usp.technology/specification/) - Official specification
-- [Lifecycle Management](https://usp.technology/specification/#sec:lifecycle-management) - Detailed specification
-- [Broadband Forum](https://www.broadband-forum.org/) - Standards organization
-- [Installing the Toolkit](installing-toolkit.md) - How to integrate this layer
-- [System Architecture](architecture.md) - Architecture overview
-- [Acceptance Testing](acceptance-testing.md) - Testing procedures
-
-## Contributing
-
-If you have implemented additional data models or have corrections to this documentation, please contribute by opening a pull request or issue on the [GitHub repository](https://github.com/rdkcentral/meta-rdk-broadband-apps).
