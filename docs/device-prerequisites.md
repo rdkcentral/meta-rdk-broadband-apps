@@ -1,10 +1,10 @@
 # Device Prerequisites
 
-This page outlines the hardware and storage requirements for devices running containerized applications with the RDK Broadband Apps Framework.
+This page outlines the hardware and storage requirements for devices to run containerized applications.
 
 ## Flash Layout Requirements
 
-To support containerized applications, devices must have dedicated flash partitions with the following minimum sizes:
+To support containerized applications, devices must have the following dedicated **writeable** flash partitions with minimum sizes and mount points as specified:
 
 | Partition | Minimum Size | Mount Point | Purpose | Writable |
 |-----------|--------------|-------------|---------|----------|
@@ -16,31 +16,25 @@ To support containerized applications, devices must have dedicated flash partiti
 
 The recommended flash structure uses a dedicated `/apps` partition separate from the root filesystem:
 
-```
+```bash
 /apps/                      # Dedicated partition for applications
 ├── packages/               # Application packages (Deployment Units)
 ├── data/                   # Persistent application data
-│   └── <app-id>/          # Per-application data directory
+│   └── <app-id>/           # Per-application data directory using obfuscated ID for security
 └── logs/                   # Application logs
+    └── <app-id>/           # Per-application logs directory using obfuscated ID for security
 ```
 
 ## Root Filesystem Protection
 
-### SquashFS Recommendation
+It is generally safe to keep the root filesystem (rootfs) untouched. Using **SquashFS** for the root filesystem is recommended to maintain system integrity and reliability. 
 
-It is generally safe to keep the root filesystem (rootfs) untouched. Using **SquashFS** for the root filesystem is recommended to:
-
-- Prevent rootfs corruption that cannot be recovered by a "restore to default" action
-- Avoid requiring aftersales intervention for filesystem corruption issues
-- Maintain system integrity and reliability
-
-### Dedicated Application Partition
-
-To ensure root filesystem integrity, a **dedicated partition** in the device flash for storing applications outside of rootfs is **mandatory**. This separation provides:
+Thus, a **dedicated partition** in the device flash for storing applications outside of rootfs is **mandatory**. This separation provides:
 
 - **Isolation**: Applications cannot corrupt the root filesystem
-- **Recovery**: "Restore to default" operations can safely erase the apps partition without affecting the base system
+- **Recovery**: "Restore to default" operations can safely erase the apps partition without affecting the base image
 - **Security**: Application storage can be secured independently from the system partition
+- **Write Permissions**: Only applies to the apps partition, not to the base image.
 
 ## Storage Requirements
 
@@ -70,7 +64,7 @@ Flash space quotas per application should be implemented to:
 
 The `/apps` folder and its contents must be secured to prevent unauthorized access and malicious activity:
 
-1. **Encryption or Alternative Security**: The `/apps/` folder must be secured via encryption or other mechanisms
+1. **Encryption or Alternative Security**: The `/apps/` folder must be secured via encryption or other good security practices
 2. **Data Integrity**: Prevent spoofing or tampering with application packages and data
 3. **Access Controls**: Implement appropriate permissions to restrict application access
 
@@ -79,39 +73,21 @@ The `/apps` folder and its contents must be secured to prevent unauthorized acce
 Each application should store its data in a dedicated subdirectory:
 
 ```
-/apps/data/<app-id>/        # Per-application data directory
+/apps/data/<app-id>/        # Per-application data directory using obfuscated IDs
 ```
 
 This isolation ensures:
 
-- Applications cannot access other applications' data
-- Data cleanup is straightforward when removing an application
-- Quota enforcement can be applied per application
+- Applications cannot **identify** other applications' partitions
+- Applications cannot **access** other applications' data
+- Data **cleanup** is straightforward when removing an application
+- **Quota** enforcement can be applied **per application**
 
-## Restore to Default Behavior
+## Restore to Factory Behavior
 
-During a "restore to default" operation:
+During a "Factory Restore" operation:
 
-- The **apps partition is erased**, removing all installed applications and their data
-- The **root filesystem remains intact**, preserving the base system
-- The device returns to a clean state ready for application deployment
+- The **apps partition should be erased**, removing all installed applications and their data, and returning the device to a clean state for app reinstallation.
+- The **base squashfs image must remain intact**, preserving the root filesystem.
 
 This behavior ensures that factory reset operations are safe and predictable.
-
-## Platform Support
-
-Refer to the [Installing the Toolkit](installing-toolkit.md) page for supported platforms and their specific configurations.
-
-## Next Steps
-
-Once your device meets these prerequisites:
-
-1. [Install the Toolkit](installing-toolkit.md) - Set up the build environment
-2. [Build Apps](building-apps.md) - Create containerized applications
-3. [Deploy Apps](deploying-apps.md) - Deploy and manage applications on your device
-
-## Related Resources
-
-- [System Architecture](architecture.md) - Understanding the reference system architecture
-- [Data Models](data-models.md) - TR-369/USP data models for lifecycle management
-- [Acceptance Testing](acceptance-testing.md) - Testing and validation procedures
