@@ -1,234 +1,156 @@
 # Installing the Toolkit
 
-This guide provides detailed instructions for installing and configuring the RDK Broadband Apps Toolkit on your build system.
-
-## Overview
-
-This document is targeted at developers and architects wishing to understand and/or build the reference system for RDK Broadband Apps in its MVP 2025 version.
+This guide provides detailed instructions to integrate the RDK Broadband Apps Toolkit into your RDK-B build.
 
 ## Prerequisites
+- An existing RDK-B Yocto project
+- Familiarity with BitBake, Yocto layer management, and the `repo` tool
+- RDK-B Ready Hardware
+    - NOTE: The recommended reference hardware is the `Banana Pi R4`
 
-- A working Yocto/OpenEmbedded build environment
-- An existing RDK project setup with repo tool
-- Familiarity with BitBake and Yocto layer management
-- **Reference Hardware**: Banana Pi BPI-R4 or Raspberry Pi 4
 
-## Supported Platforms
+## 1. Set Up Your `repo` Manifest
 
-| Device | Versions | Notes |
-|--------|----------|-------|
-| Raspberry Pi 4 (32bit/64bit) | 2025q1, 2025q2 | Confirmed Building - Official Support to be deprecated |
-| Banana Pi BPI-R4 | 2025q2 | Intermittent Build Issues not due to Toolkit |
+### 1. Add `meta-rdk-broadband-apps` to your `repo` Manifest
 
-## Choosing Your Container Runtime
+!!! tip "Use Release Tags"
+    It is **strongly recommended** to use release-tagged versions of this layer rather than tracking `main` directly. This ensures build reproducibility and stability. Check the [releases page](https://github.com/rdkcentral/meta-rdk-broadband-apps/releases) for available versions.
 
-This layer supports two container runtime options:
+Add the following line to your RDK-B project manifest
+```bash
+<project remote="github" name="meta-rdk-broadband-apps" path="meta-rdk-broadband-apps" revision="<tag>"/>
+```
 
+### 2 Adding DAC/LCM Components to the `repo` Manifest
+
+!!! tip "The following files are used in this guide:"
+    - `conf/layer.conf` – marks this repo as a BitBake layer and recommends `meta-amx` and `meta-lcm`.
+    - `manifests/rdkbb-apps-lcm.xml` – add-on submanifest to fetch prpl LCM dependencies.
+    - `conf/bblayers.conf.sample` - a reference list of all necessary meta-layers to be added to your `bblayers.conf` file. 
+
+<details>
+<summary>Instructions for DAC</summary>
+
+#### 1. Initialize and sync sources as you normally do for your Yocto setup
+```bash
+repo init -u <your usual manifest repo> [-m <their default manifest>]
+repo sync
+```
+
+#### 2. Add DAC Components
+
+Nothing to do here. DAC is available in all RDK-B projects by default as part of the root `meta-rdk` meta-layer.
+
+#### 3. Enter the Yocto build environment
+```bash
+source poky/oe-init-build-env
+```
+
+#### 4. Seed BBLAYERS from the provided sample
+
+!!! tip "Alternatively, you can manually copy the required meta-layers from `bblayers.conf.sample` into your existing `bblayers.conf`."
+
+```bash
+cp ../conf/bblayers.conf.sample conf/bblayers.conf
+```
+
+#### 5. (Optional) Pick a reference MACHINE for repeatable builds
+```bash
+echo 'MACHINE ?= "raspberrypi4-64"' >> conf/local.conf
+```
+</details>
+
+
+<details
+><summary>Instructions for LCM</summary>
+
+#### 1. Initialize and sync sources as you normally do for your Yocto setup
+```bash
+repo init -u <your usual manifest repo> [-m <their default manifest>]
+repo sync
+```
+
+#### 2. Add LCM Components
+```bash
+mkdir -p .repo/local_manifests
+cp manifests/rdkbb-apps-lcm.xml .repo/local_manifests/
+repo sync
+```
+
+#### 3. Enter the Yocto build environment
+```bash
+source poky/oe-init-build-env
+```
+
+#### 4. Seed BBLAYERS from the provided sample
+
+!!! tip "Alternatively, you can manually copy the required meta-layers from `bblayers.conf.sample` into your existing `bblayers.conf`."
+
+```bash
+cp ../conf/bblayers.conf.sample conf/bblayers.conf
+```
+
+#### 5. (Optional) Pick a reference MACHINE for repeatable builds
+```bash
+echo 'MACHINE ?= "raspberrypi4-64"' >> conf/local.conf
+```
+
+#### 6. Build
+```bash
+bitbake <your-image>
+```
+</details>
+
+## 2. Choose Your Containerisation Solution
+
+This layer supports two containerisation solutions:
 - **DAC**: Dobby Application Container utilities (Dobby and DSM) from the RDK Central `meta-rdk` layer
 - **LCM**: Lifecycle Management from the prpl Foundation's prplLCM project
 
 The container runtime is configured using the `RDK_BB_APPS_TOOLKIT_CRUNTIME` variable in your build configuration.
 
-!!! tip "Use Release Tags"
-    It is **strongly recommended** to use release-tagged versions of this layer rather than tracking `main` directly. This ensures build reproducibility and stability. Check the [releases page](https://github.com/rdkcentral/meta-rdk-broadband-apps/releases) for available versions.
+### 1. To Build DAC
 
-## Building with DAC (Dobby)
+#### 1. Prerequisites for DAC
 
-### Prerequisites for DAC
+!!! danger "DSM Bug Fix" 
+    Before building with DAC, you must apply this commit to DSM: 
+    https://github.com/rdkcentral/DSM/commit/73c6a952786c8a7660b44389f96612e9a912456f
 
-Before building with DAC, you must apply this commit to DSM:
+#### 2. Set the following variable in your `conf/layers.conf`
+```bash
+RDK_BB_APPS_TOOLKIT_CRUNTIME = "DAC"
 ```
-https://github.com/rdkcentral/DSM/commit/73c6a952786c8a7660b44389f96612e9a912456f
+
+### 2. To Build LCM
+
+#### 1. Set the following variable in your `conf/layers.conf`
+```bash
+RDK_BB_APPS_TOOLKIT_CRUNTIME = "LCM"
 ```
 
-### DAC Build Instructions
 
-=== "Raspberry Pi 4"
+## 3. Verifying Layer Integration
 
-    ```bash
-    # 1) Grab the manifest for Raspberry Pi
-    repo init -u https://code.rdkcentral.com/r/rdkcmf/manifests \
-              -m rdkb-extsrc.xml \
-              -b rdkb-2025q2-kirkstone
-    
-    # 2) Checkout the Broadband Apps Toolkit
-    # Note: For DAC (unlike LCM) no manifest extension is required
-    git clone git@github.com:rdkcentral/meta-rdk-broadband-apps.git
-    # Optionally specify branch: -b <branch>
-    
-    # 3) Sync sources
-    repo sync
-    
-    # 4) Set the build config
-    # For 32-bit:
-    MACHINE=raspberrypi4-rdk-broadband source meta-cmf-raspberrypi/setup-environment
-    
-    # For 64-bit:
-    # MACHINE=raspberrypi4-64-rdk-broadband source meta-cmf-raspberrypi/setup-environment
-    
-    # 5) Add meta-rdk-broadband-apps to the build
-    # Edit conf/bblayers.conf and add:
-    echo 'BBLAYERS =+ "${RDKROOT}/meta-rdk-broadband-apps"' >> conf/bblayers.conf
-    
-    # 6) DAC is the default runtime (no configuration needed)
-    # RDK_BB_APPS_TOOLKIT_CRUNTIME defaults to "DAC"
-    
-    # 7) Build
-    bitbake rdk-generic-broadband-image
-    ```
-
-=== "Banana Pi BPI-R4"
-
-    ```bash
-    # 1) Grab the manifest for Banana Pi
-    repo init -u https://code.rdkcentral.com/r/rdkcmf/manifests \
-              -m rdkb-bpi-extsrc.xml \
-              -b rdkb-2025q2-kirkstone
-    
-    # 2) Checkout the Broadband Apps Toolkit
-    git clone git@github.com:rdkcentral/meta-rdk-broadband-apps.git
-    
-    # 3) Sync sources
-    repo sync
-    
-    # 4) Set the build config
-    MACHINE=bananapi4-rdk-broadband source meta-cmf-bananapi/setup-environment-refboard-rdkb
-    
-    # 5) Add meta-rdk-broadband-apps to the build
-    echo 'BBLAYERS =+ "${RDKROOT}/meta-rdk-broadband-apps"' >> conf/bblayers.conf
-    
-    # 6) Build
-    bitbake rdk-generic-broadband-image
-    ```
-
-## Building with LCM (Lifecycle Management)
-
-### LCM Build Instructions
-
-=== "Raspberry Pi 4"
-
-    ```bash
-    # 1) Grab the manifest for Raspberry Pi
-    repo init -u https://code.rdkcentral.com/r/rdkcmf/manifests \
-              -m rdkb-extsrc.xml \
-              -b rdkb-2025q2-kirkstone
-    
-    # 2) Checkout the Broadband Apps Toolkit and Install Manifest Extension for LCM
-    git clone --depth 1 git@github.com:rdkcentral/meta-rdk-broadband-apps.git
-    # Optionally specify branch: -b <branch>
-    
-    # 3) Extend the main manifest with the toolkit manifest
-    mkdir -p ./.repo/local_manifests/
-    cp ./meta-rdk-broadband-apps/manifests/rdkbb-apps-lcm.xml \
-       ./.repo/local_manifests/local_manifest.xml
-    
-    # 4) Sync sources
-    repo sync -j`nproc` --no-clone-bundle
-    # This adds meta-amx and meta-lcm layers
-    
-    # 5) Set the build config
-    # For 32-bit:
-    MACHINE=raspberrypi4-rdk-broadband source meta-cmf-raspberrypi/setup-environment
-    
-    # For 64-bit:
-    # MACHINE=raspberrypi4-64-rdk-broadband source meta-cmf-raspberrypi/setup-environment
-    
-    # 6) Add the LCM layers to the build
-    # Apply bblayers.patch if available, or manually add:
-    echo 'BBLAYERS =+ "${RDKROOT}/meta-amx"' >> conf/bblayers.conf
-    echo 'BBLAYERS =+ "${RDKROOT}/meta-lcm"' >> conf/bblayers.conf
-    echo 'BBLAYERS =+ "${RDKROOT}/meta-rdk-broadband-apps"' >> conf/bblayers.conf
-    
-    # 7) Set RUNTIME type to LCM
-    # Option 1: Edit meta-rdk-broadband-apps/conf/layer.conf and set:
-    # RDK_BB_APPS_TOOLKIT_CRUNTIME = "LCM"
-    
-    # Option 2: Export in environment before building:
-    export RDK_BB_APPS_TOOLKIT_CRUNTIME=LCM
-    
-    # 8) Build
-    bitbake rdk-generic-broadband-image
-    ```
-
-=== "Banana Pi BPI-R4"
-
-    ```bash
-    # 1) BPI-R4 reference 2025q2 manifest
-    repo init -u https://code.rdkcentral.com/r/rdkcmf/manifests \
-              -b rdkb-2025q2-kirkstone \
-              -m rdkb-bpi-extsrc.xml
-    
-    # 2) Add meta-rdk-broadband-apps to the tree
-    git clone git@github.com:rdkcentral/meta-rdk-broadband-apps.git
-    
-    # 3) Add LCM and AMX layers to the tree
-    mkdir -p ./.repo/local_manifests/
-    cp ./meta-rdk-broadband-apps/manifests/rdkbb-apps-lcm.xml \
-       ./.repo/local_manifests/local_manifest.xml
-    
-    # 4) Sync/download the sources
-    repo sync -j`nproc` --no-clone-bundle
-    
-    # 5) (Optional) Bootloader files required for SD card build
-    # See RDK-B BPI-R4 generic build instructions for more info
-    mkdir -p downloads
-    cp /path/to/your/copy/of/bpi-r4_sdmmc_* downloads/
-    
-    # 6) Switch from DAC (default) to LCM
-    sed -i 's/^RDK_BB_APPS_TOOLKIT_CRUNTIME ?= "DAC"/#RDK_BB_APPS_TOOLKIT_CRUNTIME ?= "DAC"/' \
-        meta-rdk-broadband-apps/conf/layer.conf
-    sed -i 's/^# *RDK_BB_APPS_TOOLKIT_CRUNTIME ?= "LCM"/RDK_BB_APPS_TOOLKIT_CRUNTIME ?= "LCM"/' \
-        meta-rdk-broadband-apps/conf/layer.conf
-    
-    # 7) Set up the MACHINE - choose either SD card or NAND:
-    
-    # For SD card:
-    MACHINE=bananapi4-rdk-broadband source meta-cmf-bananapi/setup-environment-refboard-rdkb
-    
-    # For NAND:
-    # MACHINE=bananapi4-rdk-broadband BPI_IMG_TYPE=nand source meta-cmf-bananapi/setup-environment-refboard-rdkb
-    
-    # 8) Add extra layers for bitbake
-    echo 'BBLAYERS =+ "${RDKROOT}/meta-lcm"' >> conf/bblayers.conf
-    echo 'BBLAYERS =+ "${RDKROOT}/meta-rdk-broadband-apps"' >> conf/bblayers.conf
-    
-    # 9) Build the image
-    bitbake rdk-generic-broadband-image
-    ```
-
-## Verifying Layer Integration
-
-You can verify that the layer has been properly added to your build:
-
-### Check Layer Configuration
+Run the following command and look for `rdkbbapps` in the output. If the layer has been properly added to your build, this command should show the layer path and priority.
 
 ```bash
 bitbake-layers show-layers
 ```
 
-Look for `rdkbbapps` in the output. It should show the layer path and priority.
+## 4. Verify Containerisation Technology Configuration
 
-### Verify Container Runtime Configuration
-
-Check which container runtime is configured:
+Run the following command to ensure you have correctly set your Containerisation Technology (either DAC or prplLCM):
 
 ```bash
 bitbake -e | grep "^RDK_BB_APPS_TOOLKIT_CRUNTIME="
 ```
 
 This should output either:
-```
+```bash
 RDK_BB_APPS_TOOLKIT_CRUNTIME="DAC"
 ```
 or
-```
+```bash
 RDK_BB_APPS_TOOLKIT_CRUNTIME="LCM"
 ```
-
-## Next Steps
-
-- [Building Apps](building-apps.md) - Learn how to create containerized applications
-- [Deploying Apps](deploying-apps.md) - Deploy and manage applications on your device
-- [System Architecture](architecture.md) - Understanding the reference system architecture
-- [Acceptance Testing](acceptance-testing.md) - Testing and validation procedures
-- [Data Models](data-models.md) - TR-369/USP data models for lifecycle management
