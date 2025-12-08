@@ -101,7 +101,7 @@ bitbake <your-image>
 ```
 </details>
 
-## 2. Choose Your Containerisation Solution
+## 2. Building The Image
 
 This layer supports two containerisation solutions:
 - **DAC**: Dobby Application Container utilities (Dobby and DSM) from the RDK Central `meta-rdk` layer
