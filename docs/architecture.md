@@ -1,158 +1,29 @@
 # System Architecture
 
-This page describes the reference system architecture for RDK Broadband Apps MVP 2025.
-
-!!! note "MVP 2025 Scope"
-    This document focuses on the device-side implementation. Backend components (USP Controller, Message Transport, OCI Registry, OCI Bundle Store) are **out of scope for 2025**.
+!!! warning "Documentation in progress"
+    All documentation is currently being written in the [RDKCentral Wiki](https://wiki.rdkcentral.com/pages/viewpage.action?spaceKey=WG&title=Broadband+Apps+Framework+-+Working+Group)
 
 ## Overview
 
-The RDK Broadband Apps reference system provides a framework for deploying and managing containerized applications on RDK broadband devices using standardized protocols and data models.
+The RDK Broadband Apps Toolkit provides a standardized framework for building, deploying, and managing containerized applications for RDK Broadband devices using standardized and community-aligned protocols and technology.
 
-## Architecture Components
+### Goals
 
-### Device-Side Components
+<table>
+    <tr>
+        <th>1</th>
+        <th>Fast time-to-market for broadband features, utilising apps & containers to ship solutions quickly and independently of full firmware upgrades.</th>
+    </tr>
+    <tr>
+        <th>2</th>
+        <th>Deliver a reference solution into mainline RDK-B to enable all and any RDK-B users to start deploying apps in a standard way as soon as possible.</th>
+    </tr>
+    <tr>
+        <th>3</th>
+        <th>Define an App Catalogue of apps and their use cases from the community (currently in the <a href="https://wiki.rdkcentral.com/display/WG/App+Use+Cases">wiki</a>)</th>
+    </tr>
+</table>
 
-The device-side implementation includes:
+## Architecture
 
-- **Container Runtime**: DAC (Dobby) or LCM (Lifecycle Management)
-- **SoftwareModules Provider**: TR-369/USP data model implementation for lifecycle management
-- **OCI Bundle/Image Support**: Standard container formats
-- **Management Interface**: TR-369 USP protocol support
-
-### Backend Components (Out of Scope for 2025)
-
-The following backend components are documented for reference but not implemented in MVP 2025:
-
-- **USP Controller**: Remote device management and orchestration
-- **Message Transport**: MQTT/STOMP/WebSocket for USP communication
-- **OCI Registry**: Container image registry
-- **OCI Bundle Store**: Storage for OCI bundles and configurations
-
-## Container Runtime Options
-
-### DAC (Dobby Application Container)
-
-DAC provides OCI-compliant container runtime capabilities using:
-
-- **Dobby**: Container daemon and runtime
-- **DSM**: Device Software Module manager
-
-Key features:
-- OCI bundle support
-- Namespace isolation
-- Resource management via cgroups
-- Network configuration
-
-Source: [meta-rdk/recipes-containers](https://github.com/rdkcentral/meta-rdk/tree/develop/recipes-containers)
-
-### LCM (Lifecycle Management)
-
-LCM provides container lifecycle management using the prpl Foundation's implementation:
-
-- **LXC**: Linux Containers runtime
-- **Ambiorix**: Data model framework
-- **ba-cli**: Command-line interface
-
-Key features:
-- OCI image support (pulled from registries)
-- Container lifecycle operations
-- TR-369 data model integration
-
-Source: [meta-lcm](https://gitlab.com/prpl-foundation/prplrdkb/metalayers/meta-lcm)
-
-## Data Model Integration
-
-Both DAC and LCM implementations provide support for the TR-369 **Device.SoftwareModules** data model, enabling:
-
-- Remote container installation
-- Container lifecycle management (start, stop, restart)
-- Status monitoring and reporting
-- Configuration management
-
-See [Data Models](data-models.md) for detailed data model documentation.
-
-## Supported Platforms
-
-| Platform | Architecture | Container Runtime | Notes |
-|----------|--------------|-------------------|-------|
-| Raspberry Pi 4 | 32-bit/64-bit | DAC, LCM | Support to be deprecated |
-| Banana Pi BPI-R4 | 64-bit | DAC, LCM | Recommended platform |
-
-## Build Configuration
-
-The container runtime is selected at build time using the `RDK_BB_APPS_TOOLKIT_CRUNTIME` variable:
-
-```bash
-# For DAC (default)
-RDK_BB_APPS_TOOLKIT_CRUNTIME = "DAC"
-
-# For LCM
-RDK_BB_APPS_TOOLKIT_CRUNTIME = "LCM"
-```
-
-See [Installing the Toolkit](installing-toolkit.md) for complete build instructions.
-
-## Application Deployment
-
-### DAC Application Deployment
-
-DAC applications are deployed as **OCI bundles** containing:
-
-- `config.json`: OCI runtime configuration
-- `rootfs/`: Container root filesystem
-
-### LCM Application Deployment
-
-LCM applications are deployed as **OCI images** that are:
-
-- Pulled from OCI-compliant registries
-- Automatically converted to LXC containers
-- Managed via TR-369 data model
-
-## Management Interfaces
-
-### Command Line
-
-Both runtimes provide command-line tools:
-
-#### DAC
-```bash
-# Using dmcli for Device.SoftwareModules access
-dmcli eRT getv Device.SoftwareModules.
-
-# Using rbuscli for operations
-rbuscli method_values "Device.SoftwareModules.InstallDU()" \
-    URL string http://example.com/app.tar.gz \
-    ExecutionEnvRef string default
-```
-
-#### LCM
-```bash
-# Using ba-cli for Device.SoftwareModules access
-ba-cli 'Device.SoftwareModules.?'
-
-# Install container
-ba-cli 'Device.SoftwareModules.InstallDU( \
-    URL = "docker://index.docker.io/user/image:tag", \
-    ExecutionEnvRef = "Device.SoftwareModules.ExecEnv.1." )'
-
-# Control container state
-ba-cli 'Device.SoftwareModules.ExecutionUnit.1.SetRequestedState( \
-    RequestedState = "Active" )'
-```
-
-### USP Controller Integration (Out of Scope for 2025)
-
-Future versions will support remote management via USP Controller using:
-
-- MQTT/STOMP/WebSocket message transport
-- TR-369 USP protocol operations
-- Automated container deployment and updates
-
-## Related Resources
-
-- [Installing the Toolkit](installing-toolkit.md) - Build instructions for DAC and LCM
-- [Acceptance Testing](acceptance-testing.md) - Testing procedures
-- [Deploying Apps](deploying-apps.md) - Application deployment and management
-- [Data Models](data-models.md) - Data model specification
+!!! warning "Documentation in progress"
