@@ -27,15 +27,16 @@ repo sync
 
 ## 3. Sync DAC / LCM Repos
 
+!!! warning "TO DO"
+    Build a specific released version of DAC, not just whatever the latest happens to be.
+
 === "DAC"
 
     !!! danger "DSM Bug Fix" 
-    Before building with DAC, you must apply this commit to DSM: 
-    https://github.com/rdkcentral/DSM/commit/73c6a952786c8a7660b44389f96612e9a912456f
+        Before building with DAC, you must apply this commit to DSM: 
+        [https://github.com/rdkcentral/DSM/commit/73c6a952786c8a7660b44389f96612e9a912456f](https://github.com/rdkcentral/DSM/commit/73c6a952786c8a7660b44389f96612e9a912456f)
 
     DAC is available in all RDK-B projects by default as part of the root `meta-rdk` meta-layer, so you don't need to do anything else to include it in your project.
-
-    *TODO*: Build a specific released version of DAC, not just whatever the latest happens to be
 
 === "LCM"
 
@@ -45,8 +46,6 @@ repo sync
     cp manifests/rdkbb-apps-lcm.xml .repo/local_manifests/
     repo sync
     ```
-
-    *TODO*: Build a specific released version of DAC, not just whatever the latest happens to be
 
 ## 4. Setup `layer.conf`
 

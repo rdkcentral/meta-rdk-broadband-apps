@@ -24,6 +24,7 @@ GitHub: [rdkcentral/meta-rdk-broadband-apps](https://github.com/rdkcentral/meta-
 ## Contributing
 
 Contributions are welcome! Please see our repository for guidelines on:
+
 - Reporting issues
 - Submitting pull requests
 - Documentation improvements

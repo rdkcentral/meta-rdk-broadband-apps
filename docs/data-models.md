@@ -14,71 +14,68 @@ If you have implemented additional data models or have corrections to this docum
 
 ## Data Models
 
-<details>
-<summary>TR-369/USP Compatible Data Models</summary>
-
 !!! tip "Note"
     This is up to date as of [TR-181 v2.20.1 (USP)](https://usp-data-models.broadband-forum.org/tr-181-2-20-1-usp.html). 
 
-```bash
-Device.SoftwareModules.
-├── InstallDU()                     # Method - not available in CWMP-compatible version
-├── DUStateChange!                  # Notification - not available in CWMP-compatible version
-├── ExecEnvClass.{i}.               # ~Execution Environments~
-│   ├── AddExecEnv()                # Method - not available in CWMP-compatible version
-│   └── Capability.{i}.
-│       └── Specification           
-├── ExecEnv.{i}.                    # ~Execution Environments~
-│   ├── SetRunLevel()               # Method - not available in CWMP-compatible version
-│   ├── Reset()                     # Method - not available in CWMP-compatible version
-│   ├── Enable
-│   ├── Status
-│   ├── Name
-│   ├── Type
-│   ├── InitialRunLevel
-│   ├── CurrentRunLevel
-│   ├── AllocatedDiskSpace
-│   ├── AvailableDiskSpace
-│   ├── AllocatedMemory
-│   ├── AvailableMemory
-│   └── ...
-├── DeploymentUnit.{i}.             # ~Deployment Units~
-│   ├── Update()                    # Method - not available in CWMP-compatible version
-│   ├── Uninstall()                 # Method - not available in CWMP-compatible version
-│   ├── UUID
-│   ├── DUID
-│   ├── Name
-│   ├── Status
-│   ├── Resolved
-│   ├── URL
-│   ├── ExecutionUnitList
-│   ├── ExecutionEnvRef
-│   └── ...
-└── ExecutionUnit.{i}.              # ~Execution Units~
-    ├── SetRequestedState()         # Method - not available in CWMP-compatible version
-    ├── Restart()                   # Method - not available in CWMP-compatible version
-    ├── EUID
-    ├── Name
-    ├── ExecEnvLabel
-    ├── Status
-    ├── ExecutionFaultCode
-    ├── ExecutionFaultMessage
-    ├── AutoStart
-    ├── RunLevel
-    ├── DiskSpaceInUse
-    ├── MemoryInUse
-    └── ...
-```
-</details>
+=== "TR-369/USP"
 
-<details>
-<summary>TR-069/CWMP Compatible Data Models</summary>
+    ```bash
+    Device.SoftwareModules.
+    ├── InstallDU()                     # Method - not available in CWMP-compatible version
+    ├── DUStateChange!                  # Notification - not available in CWMP-compatible version
+    ├── ExecEnvClass.{i}.               # ~Execution Environments~
+    │   ├── AddExecEnv()                # Method - not available in CWMP-compatible version
+    │   └── Capability.{i}.
+    │       └── Specification           
+    ├── ExecEnv.{i}.                    # ~Execution Environments~
+    │   ├── SetRunLevel()               # Method - not available in CWMP-compatible version
+    │   ├── Reset()                     # Method - not available in CWMP-compatible version
+    │   ├── Enable
+    │   ├── Status
+    │   ├── Name
+    │   ├── Type
+    │   ├── InitialRunLevel
+    │   ├── CurrentRunLevel
+    │   ├── AllocatedDiskSpace
+    │   ├── AvailableDiskSpace
+    │   ├── AllocatedMemory
+    │   ├── AvailableMemory
+    │   └── ...
+    ├── DeploymentUnit.{i}.             # ~Deployment Units~
+    │   ├── Update()                    # Method - not available in CWMP-compatible version
+    │   ├── Uninstall()                 # Method - not available in CWMP-compatible version
+    │   ├── UUID
+    │   ├── DUID
+    │   ├── Name
+    │   ├── Status
+    │   ├── Resolved
+    │   ├── URL
+    │   ├── ExecutionUnitList
+    │   ├── ExecutionEnvRef
+    │   └── ...
+    └── ExecutionUnit.{i}.              # ~Execution Units~
+        ├── SetRequestedState()         # Method - not available in CWMP-compatible version
+        ├── Restart()                   # Method - not available in CWMP-compatible version
+        ├── EUID
+        ├── Name
+        ├── ExecEnvLabel
+        ├── Status
+        ├── ExecutionFaultCode
+        ├── ExecutionFaultMessage
+        ├── AutoStart
+        ├── RunLevel
+        ├── DiskSpaceInUse
+        ├── MemoryInUse
+        └── ...
+    ```
 
-```bash
-Device.X_RDK_SoftwareModules.
-└── ...                             # COMING SOON...
-```
-</details>
+=== "TR-069/CWMP Compatible"
+
+    ```bash
+    Device.X_RDK_SoftwareModules.
+    └── ...                             # COMING SOON...
+    ```
+
 
 ## Lifecycle Management
 
