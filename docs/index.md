@@ -11,7 +11,7 @@ This Yocto meta-layer provides containerization support for RDK Broadband device
 
 ## Features
 
-- ✅ Supports either DAC or prplLCM as the core containerisation solution
+- ✅ Supports either DAC or prplLCM as the core containerization solution
 - ✅ OCI-compliant container generation
 - ✅ Standardized TR-369/USP remote management via Device.SoftwareModules
 - ✅ Backwards compatibility with TR-69/CWMP

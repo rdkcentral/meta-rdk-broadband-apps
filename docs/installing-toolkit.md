@@ -47,9 +47,9 @@ repo sync
     repo sync
     ```
 
-## 4. Setup `layer.conf`
+## 4. Setup `local.conf`
 
-Set the following variable in your `conf/layers.conf`:
+Set the following variable in your `conf/local.conf`:
 
 === "DAC"
 
@@ -100,9 +100,9 @@ Run the following command and look for `rdkbbapps` in the output. If the layer h
 bitbake-layers show-layers
 ```
 
-## 9. Verify Containerisation Technology Configuration
+## 9. Verify Containerization Technology Configuration
 
-Run the following command to ensure you have correctly set your Containerisation Technology (either DAC or prplLCM):
+Run the following command to ensure you have correctly set your Containerization Technology (either DAC or prplLCM):
 
 ```bash
 bitbake -e | grep "^RDK_BB_APPS_TOOLKIT_CRUNTIME="
