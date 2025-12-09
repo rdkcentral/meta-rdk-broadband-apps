@@ -28,7 +28,7 @@ repo sync
 ## 3. Sync DAC / LCM Repos
 
 !!! warning "TO DO"
-    Build a specific released version of DAC, not just whatever the latest happens to be.
+    Include specific release versions of DAC or LCM in the build. Don't just pull latest code. We need stable releases.
 
 === "DAC"
 
