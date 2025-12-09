@@ -7,27 +7,27 @@ This page provides acceptance testing procedures and reference values for valida
 === "DAC"
 
     ```bash
-    cpokur625@dvm-yocto4-docker-cpokur625:~/q225/build-bananapi4-rdk-broadband/tmp/work/bananapi4_rdk_broadband-rdk-linux/linux-mediatek/1_5.4.281+gitAUTOINC+feeb59687b_84d75fd864-r0/linux-bananapi4_rdk_broadband-standard-build$ grep -nir "CONFIG_CGROUP_CPUACCT=y" .
+    build-bananapi4-rdk-broadband/tmp/work/bananapi4_rdk_broadband-rdk-linux/linux-mediatek/1_5.4.281+gitAUTOINC+feeb59687b_84d75fd864-r0/linux-bananapi4_rdk_broadband-standard-build$ grep -nir "CONFIG_CGROUP_CPUACCT=y" .
     ./.config:144:CONFIG_CGROUP_CPUACCT=y
     ./.config.old:144:CONFIG_CGROUP_CPUACCT=y
     ^C
-    cpokur625@dvm-yocto4-docker-cpokur625:~/q225/build-bananapi4-rdk-broadband/tmp/work/bananapi4_rdk_broadband-rdk-linux/linux-mediatek/1_5.4.281+gitAUTOINC+feeb59687b_84d75fd864-r0/linux-bananapi4_rdk_broadband-standard-build$ grep -nir "CONFIG_CGROUP_CPUACCT=y" .config
+    build-bananapi4-rdk-broadband/tmp/work/bananapi4_rdk_broadband-rdk-linux/linux-mediatek/1_5.4.281+gitAUTOINC+feeb59687b_84d75fd864-r0/linux-bananapi4_rdk_broadband-standard-build$ grep -nir "CONFIG_CGROUP_CPUACCT=y" .config
     144:CONFIG_CGROUP_CPUACCT=y
-    cpokur625@dvm-yocto4-docker-cpokur625:~/q225/build-bananapi4-rdk-broadband/tmp/work/bananapi4_rdk_broadband-rdk-linux/linux-mediatek/1_5.4.281+gitAUTOINC+feeb59687b_84d75fd864-r0/linux-bananapi4_rdk_broadband-standard-build$ grep -nir "CONFIG_IP_NF_RAW" .config
+    build-bananapi4-rdk-broadband/tmp/work/bananapi4_rdk_broadband-rdk-linux/linux-mediatek/1_5.4.281+gitAUTOINC+feeb59687b_84d75fd864-r0/linux-bananapi4_rdk_broadband-standard-build$ grep -nir "CONFIG_IP_NF_RAW" .config
     1128:CONFIG_IP_NF_RAW=m
-    cpokur625@dvm-yocto4-docker-cpokur625:~/q225/build-bananapi4-rdk-broadband/tmp/work/bananapi4_rdk_broadband-rdk-linux/linux-mediatek/1_5.4.281+gitAUTOINC+feeb59687b_84d75fd864-r0/linux-bananapi4_rdk_broadband-standard-build$ grep -nir "CONFIG_CGROUP_DEBUG" .config
+    build-bananapi4-rdk-broadband/tmp/work/bananapi4_rdk_broadband-rdk-linux/linux-mediatek/1_5.4.281+gitAUTOINC+feeb59687b_84d75fd864-r0/linux-bananapi4_rdk_broadband-standard-build$ grep -nir "CONFIG_CGROUP_DEBUG" .config
     147:CONFIG_CGROUP_DEBUG=y
-    cpokur625@dvm-yocto4-docker-cpokur625:~/q225/build-bananapi4-rdk-broadband/tmp/work/bananapi4_rdk_broadband-rdk-linux/linux-mediatek/1_5.4.281+gitAUTOINC+feeb59687b_84d75fd864-r0/linux-bananapi4_rdk_broadband-standard-build$ grep -nir "CONFIG_CGROUP_SCHED" .config
+    build-bananapi4-rdk-broadband/tmp/work/bananapi4_rdk_broadband-rdk-linux/linux-mediatek/1_5.4.281+gitAUTOINC+feeb59687b_84d75fd864-r0/linux-bananapi4_rdk_broadband-standard-build$ grep -nir "CONFIG_CGROUP_SCHED" .config
     135:CONFIG_CGROUP_SCHED=y
-    cpokur625@dvm-yocto4-docker-cpokur625:~/q225/build-bananapi4-rdk-broadband/tmp/work/bananapi4_rdk_broadband-rdk-linux/linux-mediatek/1_5.4.281+gitAUTOINC+feeb59687b_84d75fd864-r0/linux-bananapi4_rdk_broadband-standard-build$ cd ..
-    cpokur625@dvm-yocto4-docker-cpokur625:~/q225/build-bananapi4-rdk-broadband/tmp/work/bananapi4_rdk_broadband-rdk-linux/linux-mediatek/1_5.4.281+gitAUTOINC+feeb59687b_84d75fd864-r0$ cd ..
-    cpokur625@dvm-yocto4-docker-cpokur625:~/q225/build-bananapi4-rdk-broadband/tmp/work/bananapi4_rdk_broadband-rdk-linux/linux-mediatek$ cd ..
-    cpokur625@dvm-yocto4-docker-cpokur625:~/q225/build-bananapi4-rdk-broadband/tmp/work/bananapi4_rdk_broadband-rdk-linux$ cd ..
-    cpokur625@dvm-yocto4-docker-cpokur625:~/q225/build-bananapi4-rdk-broadband/tmp/work$ cd ..
-    cpokur625@dvm-yocto4-docker-cpokur625:~/q225/build-bananapi4-rdk-broadband/tmp$ cd work-shared/
+    build-bananapi4-rdk-broadband/tmp/work/bananapi4_rdk_broadband-rdk-linux/linux-mediatek/1_5.4.281+gitAUTOINC+feeb59687b_84d75fd864-r0/linux-bananapi4_rdk_broadband-standard-build$ cd ..
+    build-bananapi4-rdk-broadband/tmp/work/bananapi4_rdk_broadband-rdk-linux/linux-mediatek/1_5.4.281+gitAUTOINC+feeb59687b_84d75fd864-r0$ cd ..
+    build-bananapi4-rdk-broadband/tmp/work/bananapi4_rdk_broadband-rdk-linux/linux-mediatek$ cd ..
+    build-bananapi4-rdk-broadband/tmp/work/bananapi4_rdk_broadband-rdk-linux$ cd ..
+    build-bananapi4-rdk-broadband/tmp/work$ cd ..
+    build-bananapi4-rdk-broadband/tmp$ cd work-shared/
     bananapi4-rdk-broadband/ gcc-11.3.0-r0/           
-    cpokur625@dvm-yocto4-docker-cpokur625:~/q225/build-bananapi4-rdk-broadband/tmp$ cd work-shared/bananapi4-rdk-broadband/kernel-source/
-    cpokur625@dvm-yocto4-docker-cpokur625:~/q225/build-bananapi4-rdk-broadband/tmp/work-shared/bananapi4-rdk-broadband/kernel-source$ grep -nir "CGROUP_CPUACCT" .
+    build-bananapi4-rdk-broadband/tmp$ cd work-shared/bananapi4-rdk-broadband/kernel-source/
+    build-bananapi4-rdk-broadband/tmp/work-shared/bananapi4-rdk-broadband/kernel-source$ grep -nir "CGROUP_CPUACCT" .
     ./arch/s390/configs/defconfig:26:CONFIG_CGROUP_CPUACCT=y
     ./arch/s390/configs/debug_defconfig:27:CONFIG_CGROUP_CPUACCT=y
     ./arch/um/configs/x86_64_defconfig:17:CONFIG_CGROUP_CPUACCT=y
@@ -68,7 +68,7 @@ This page provides acceptance testing procedures and reference values for valida
     ./init/Kconfig:1010:config CGROUP_CPUACCT
     ./include/linux/cgroup.h:762:#ifdef CONFIG_CGROUP_CPUACCT
     ./include/linux/cgroup_subsys.h:20:#if IS_ENABLED(CONFIG_CGROUP_CPUACCT)
-    cpokur625@dvm-yocto4-docker-cpokur625:~/q225/build-bananapi4-rdk-broadband/tmp/work-shared/bananapi4-rdk-broadband/kernel-source$ grep -nir "CGROUP_SCHED" .
+    build-bananapi4-rdk-broadband/tmp/work-shared/bananapi4-rdk-broadband/kernel-source$ grep -nir "CGROUP_SCHED" .
     ./arch/um/configs/x86_64_defconfig:18:CONFIG_CGROUP_SCHED=y
     ./arch/um/configs/i386_defconfig:20:CONFIG_CGROUP_SCHED=y
     ./arch/mips/configs/ci20_defconfig:13:CONFIG_CGROUP_SCHED=y
@@ -127,8 +127,8 @@ This page provides acceptance testing procedures and reference values for valida
     ./include/linux/sched/autogroup.h:30:#endif /* CONFIG_CGROUP_SCHED */
     ./include/linux/sched.h:682:#ifdef CONFIG_CGROUP_SCHED
     ./include/linux/cgroup_subsys.h:16:#if IS_ENABLED(CONFIG_CGROUP_SCHED)
-    cpokur625@dvm-yocto4-docker-cpokur625:~/q225/build-bananapi4-rdk-broadband/tmp/work-shared/bananapi4-rdk-broadband/kernel-source$ 
-    cpokur625@dvm-yocto4-docker-cpokur625:~/q225/build-bananapi4-rdk-broadband/tmp/work-shared/bananapi4-rdk-broadband/kernel-source$ grep -nir "NETFILTER_XT_TARGET_CT" .
+    build-bananapi4-rdk-broadband/tmp/work-shared/bananapi4-rdk-broadband/kernel-source$ 
+    build-bananapi4-rdk-broadband/tmp/work-shared/bananapi4-rdk-broadband/kernel-source$ grep -nir "NETFILTER_XT_TARGET_CT" .
     ./arch/s390/configs/defconfig:180:CONFIG_NETFILTER_XT_TARGET_CT=m
     ./arch/s390/configs/debug_defconfig:185:CONFIG_NETFILTER_XT_TARGET_CT=m
     ./arch/mips/configs/xway_defconfig:55:CONFIG_NETFILTER_XT_TARGET_CT=m
@@ -148,10 +148,10 @@ This page provides acceptance testing procedures and reference values for valida
     ./.kernel-meta/configs/dobby.cfg:18:CONFIG_NETFILTER_XT_TARGET_CT=y
     ./.kernel-meta/patches/999-1718-v5.15-net-netfilter-add-nf-hw-offload.patch:1242: 	select NETFILTER_XT_TARGET_CT
     ./.kernel-meta/patches/999-1718-v5.15-net-netfilter-add-nf-hw-offload.patch:1272: obj-$(CONFIG_NETFILTER_XT_TARGET_CT) += xt_CT.o
-    cpokur625@dvm-yocto4-docker-cpokur625:~/q225/build-bananapi4-rdk-broadband/tmp/work-shared/bananapi4-rdk-broadband/kernel-source$ ls ../../../
+    build-bananapi4-rdk-broadband/tmp/work-shared/bananapi4-rdk-broadband/kernel-source$ ls ../../../
     abi_version          cache/               hosttools/           pkgdata/             saved_tmpdir         stamps/              sysroots-components/ work/                
     buildstats/          deploy/              log/                 qa.log               sstate-control/      sysroots/            sysroots-uninative/  work-shared/         
-    cpokur625@dvm-yocto4-docker-cpokur625:~/q225/build-bananapi4-rdk-broadband/tmp/work-shared/bananapi4-rdk-broadband/kernel-source$ ls ../../../work/bananapi4_rdk_broadband-rdk-linux/linux-mediatek/1_5.4.281+gitAUTOINC+feeb59687b_84d75fd864-r0/linux-bananapi4_rdk_broadband-standard-build/net/netfilter/
+    build-bananapi4-rdk-broadband/tmp/work-shared/bananapi4-rdk-broadband/kernel-source$ ls ../../../work/bananapi4_rdk_broadband-rdk-linux/linux-mediatek/1_5.4.281+gitAUTOINC+feeb59687b_84d75fd864-r0/linux-bananapi4_rdk_broadband-standard-build/net/netfilter/
     built-in.a                    nf_conntrack_h323.mod.c        nf_conntrack_proto_sctp.o  nf_flow_table_core.o     nf_nat_sip.mod.o     nft_dynset.o      xt_HL.ko             xt_NFLOG.ko
     core.o                        nf_conntrack_h323.mod.o        nf_conntrack_proto_tcp.o   nf_flow_table_ip.o       nf_nat_sip.o         nft_exthdr.o      xt_HL.mod            xt_NFLOG.mod
     ipset                         nf_conntrack_h323.o            nf_conntrack_proto_udp.o   nf_flow_table_netlink.o  nf_nat_tftp.ko       nft_immediate.o   xt_HL.mod.c          xt_NFLOG.mod.c
@@ -181,13 +181,13 @@ This page provides acceptance testing procedures and reference values for valida
     Summary: There was 1 WARNING message.
     === Matched appended recipes ===
     dobby.bb:
-    /home/cpokur625/q225/meta-rdk-broadband-apps/recipes-containers/dobby/dobby.bbappend
-    cpokur625@dvm-yocto4-docker-cpokur625:~/q225/build-bananapi4-rdk-broadband$ 
+    meta-rdk-broadband-apps/recipes-containers/dobby/dobby.bbappend
+    build-bananapi4-rdk-broadband$ 
 
 
-    http://10.26.60.86/busybox.tar.gz
+    http://192.168.0.10/busybox.tar.gz
 
-    rbuscli method_values "Device.SoftwareModules.InstallDU()" URL string http://10.26.60.86/busybox.tar.gz ExecutionEnvRef string default
+    rbuscli method_values "Device.SoftwareModules.InstallDU()" URL string http://192.168.0.10/busybox.tar.gz ExecutionEnvRef string default
     rbuscli method_values "Device.SoftwareModules.ExecutionUnit.1.SetRequestedState()" RequestedState string Active
 
 
@@ -238,7 +238,7 @@ This page provides acceptance testing procedures and reference values for valida
     Parameter    3 name: Device.SoftwareModules.DeploymentUnit.1.Status
                 type:     string,    value: Installed 
     Parameter    4 name: Device.SoftwareModules.DeploymentUnit.1.URL
-                type:     string,    value: http://10.26.60.86/busybox.tar.gz 
+                type:     string,    value: http://192.168.0.10/busybox.tar.gz 
     Parameter    5 name: Device.SoftwareModules.ExecEnv.1.CurrentRunLevel
                 type:        int,    value: 5 
     Parameter    6 name: Device.SoftwareModules.ExecEnv.1.Enable
@@ -285,7 +285,7 @@ This page provides acceptance testing procedures and reference values for valida
     Parameter    3 name: Device.SoftwareModules.DeploymentUnit.1.Status
                 type:     string,    value: Installed 
     Parameter    4 name: Device.SoftwareModules.DeploymentUnit.1.URL
-                type:     string,    value: http://10.26.60.86/busybox.tar.gz 
+                type:     string,    value: http://192.168.0.10/busybox.tar.gz 
     Parameter    5 name: Device.SoftwareModules.ExecEnv.1.CurrentRunLevel
                 type:        int,    value: 5 
     Parameter    6 name: Device.SoftwareModules.ExecEnv.1.Enable
@@ -338,7 +338,7 @@ This page provides acceptance testing procedures and reference values for valida
     Parameter    3 name: Device.SoftwareModules.DeploymentUnit.1.Status
                 type:     string,    value: Installed 
     Parameter    4 name: Device.SoftwareModules.DeploymentUnit.1.URL
-                type:     string,    value: http://10.26.60.86/busybox.tar.gz 
+                type:     string,    value: http://192.168.0.10/busybox.tar.gz 
     Parameter    5 name: Device.SoftwareModules.ExecEnv.1.CurrentRunLevel
                 type:        int,    value: 5 
     Parameter    6 name: Device.SoftwareModules.ExecEnv.1.Enable
@@ -377,7 +377,7 @@ This page provides acceptance testing procedures and reference values for valida
     root@Filogic-GW:~# 
 
 
-    :/tmp# rbuscli method_values "Device.SoftwareModules.InstallDU()" URL string http://10.26.60.86/busybox.tar.gz ExecutionEnvRef string default
+    :/tmp# rbuscli method_values "Device.SoftwareModules.InstallDU()" URL string http://192.168.0.10/busybox.tar.gz ExecutionEnvRef string default
     Parameter  1:
                 Name  : Status
                 Type  : string
@@ -470,8 +470,8 @@ This page provides acceptance testing procedures and reference values for valida
 === "LCM"
 
     ```bash
-    ~$ ssh root@10.42.0.187
-    Warning: Permanently added '10.42.0.187' (ED25519) to the list of known hosts.
+    ~$ ssh root@192.168.0.10
+    Warning: Permanently added '192.168.0.10' (ED25519) to the list of known hosts.
     root@Filogic-GW:~# 
     root@Filogic-GW:~# 
     root@Filogic-GW:~# ba-cli 'Device.SoftwareModules.InstallDU(URL = "docker://index.docker.io/piotrnakraszewicz/alpine64", UUID = "1713d242-80ba-55b4-a115-07bbb1d318ab", ExecutionEnvRef = "generic", AutoStart = "false", Privileged = true, NetworkConfig={ShareParentNetwork=1})'
@@ -650,7 +650,7 @@ This page provides acceptance testing procedures and reference values for valida
 
     root@Filogic-GW:~# lxc-ls -f
     NAME                                 STATE   AUTOSTART GROUPS IPV4                                                                             IPV6 UNPRIVILEGED 
-    a6995eb1-777e-52cd-aa7d-cec618548396 RUNNING 0         -      10.0.0.1, 10.42.0.187, 169.254.85.1, 192.168.101.3, 192.168.106.1, 192.168.245.1 -    false        
+    a6995eb1-777e-52cd-aa7d-cec618548396 RUNNING 0         -      192.168.0.0, 192.168.0.10, 192.168.101.3, 192.168.106.1, 192.168.245.1 -    false        
     root@Filogic-GW:~# lxc-attach 
     lxc-attach: No container name specified
     root@Filogic-GW:~# lxc-attach a6995eb1-777e-52cd-aa7d-cec618548396
@@ -764,13 +764,13 @@ This page provides acceptance testing procedures and reference values for valida
     root@Filogic-GW:~# 
     root@Filogic-GW:~# lxc-ls -f
     NAME                                 STATE   AUTOSTART GROUPS IPV4                                                                             IPV6 UNPRIVILEGED 
-    a6995eb1-777e-52cd-aa7d-cec618548396 RUNNING 0         -      10.0.0.1, 10.42.0.187, 169.254.85.1, 192.168.101.3, 192.168.106.1, 192.168.245.1 -    false        
+    a6995eb1-777e-52cd-aa7d-cec618548396 RUNNING 0         -      192.168.0.1, 192.168.0.10, 192.168.101.3, 192.168.106.1, 192.168.245.1 -    false        
     root@Filogic-GW:~# lxc-ls -f
     NAME                                 STATE   AUTOSTART GROUPS IPV4                                                                             IPV6 UNPRIVILEGED 
-    a6995eb1-777e-52cd-aa7d-cec618548396 RUNNING 0         -      10.0.0.1, 10.42.0.187, 169.254.85.1, 192.168.101.3, 192.168.106.1, 192.168.245.1 -    false        
+    a6995eb1-777e-52cd-aa7d-cec618548396 RUNNING 0         -      192.168.0.1, 192.168.0.10, 192.168.101.3, 192.168.106.1, 192.168.245.1 -    false        
     root@Filogic-GW:~# lxc-ls -f
     NAME                                 STATE   AUTOSTART GROUPS IPV4                                                                             IPV6 UNPRIVILEGED 
-    a6995eb1-777e-52cd-aa7d-cec618548396 RUNNING 0         -      10.0.0.1, 10.42.0.187, 169.254.85.1, 192.168.101.3, 192.168.106.1, 192.168.245.1 -    false        
+    a6995eb1-777e-52cd-aa7d-cec618548396 RUNNING 0         -      192.168.0.1, 192.168.0.10, 192.168.101.3, 192.168.106.1, 192.168.245.1 -    false        
     root@Filogic-GW:~# lxc-ls -f
     NAME                                 STATE   AUTOSTART GROUPS IPV4 IPV6 UNPRIVILEGED 
     a6995eb1-777e-52cd-aa7d-cec618548396 STOPPED 0         -      -    -    false        
