@@ -19,7 +19,8 @@ nav:
 
 markdown_extensions:
   - admonition                  # For callout boxes
-  - pymdownx.tabbed             # For code and content tabs
+  - pymdownx.tabbed:            # For code and content tabs
+      alternate_style: true
   - pymdownx.tasklist           # For GitHub-style task lists [ ] [x]
   - pymdownx.details            # For collapsible sections
   - pymdownx.tilde              # For strikethrough and subscript/superscript
@@ -60,6 +61,7 @@ theme:
     - content.code.annotate
     - search.suggest
     - search.highlight
+    - content.tabs.link
   icon:
     repo: fontawesome/brands/github
   palette:
