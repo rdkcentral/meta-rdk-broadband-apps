@@ -23,7 +23,7 @@ Required setting for this to work:
 
 ### Preview The Site On Your Local Machine
 To preview the Pages site on your local machine:
-```
+```bash
 pip install -r docs/requirements.txt
 mkdocs serve
 ```

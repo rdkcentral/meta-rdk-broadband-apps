@@ -72,7 +72,7 @@ The `/apps` folder and its contents must be secured to prevent unauthorized acce
 
 Each application should store its data in a dedicated subdirectory:
 
-```
+```bash
 /apps/data/<app-id>/        # Per-application data directory using obfuscated IDs
 ```
 
