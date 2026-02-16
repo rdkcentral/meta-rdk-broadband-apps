@@ -1,6 +1,10 @@
 # meta-rdk-broadband-apps
 Meta layer to add the Broadband Apps Framework to your existing RDK image.
 
+### Quick Links
+[![Read The Wiki](https://img.shields.io/badge/Read_The_Wiki-6F3DFA.svg?logo=firefox)](https://rdkcentral.github.io/meta-rdk-broadband-apps/)
+
+### Live Status Updates
 [![Deploy MkDocs to GitHub Pages](https://github.com/rdkcentral/meta-rdk-broadband-apps/actions/workflows/deploy_docs.yml/badge.svg)](https://github.com/rdkcentral/meta-rdk-broadband-apps/actions/workflows/deploy_docs.yml)
 
 [![GitHub milestone details](https://img.shields.io/github/milestones/progress-percent/rdkcentral/meta-rdk-broadband-apps/2)](https://github.com/rdkcentral/meta-rdk-broadband-apps/milestone/2)
@@ -9,7 +13,7 @@ Meta layer to add the Broadband Apps Framework to your existing RDK image.
 
 
 ## Getting Started & Technical Docs:
-See the `docs/` folder, or visit the live [GitHub Pages site](https://rdkcentral.github.io/meta-rdk-broadband-apps/).
+See the `docs/` folder, or visit the live website: [![Read The Wiki](https://img.shields.io/badge/Read_The_Wiki-6F3DFA.svg?logo=firefox)](https://rdkcentral.github.io/meta-rdk-broadband-apps/).
 
 ### Building the GitHub Pages Site
 We use `mkdocs` to publish `.md` files in the `docs/` folder to GitHub Pages.
