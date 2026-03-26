@@ -1,4 +1,4 @@
-name: Verify MkDocs Build on PR
+name: Verify Zensical Build on PR
 
 on:
   pull_request:
@@ -21,8 +21,8 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install MkDocs and Dependencies
+      - name: Install Zensical and Dependencies
         run: pip install -r docs/requirements.txt
 
-      - name: Verify MkDocs build
-        run: mkdocs build --strict
+      - name: Verify Zensical build
+        run: zensical build --clean
