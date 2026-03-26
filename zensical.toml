@@ -45,14 +45,14 @@ code = "Fira Code"
 
 [[project.theme.palette]]
 scheme = "default"
-primary = "cyan"
-accent = "cyan"
-toggle.icon = "material/brightness-7"
+primary = "deep orange"
+accent = "deep orange"
+toggle.icon = "lucide/sun"
 toggle.name = "Switch to dark mode"
 
 [[project.theme.palette]]
 scheme = "slate"
-primary = "teal"
-accent = "teal"
-toggle.icon = "material/brightness-4"
+primary = "deep orange"
+accent = "deep orange"
+toggle.icon = "lucide/moon"
 toggle.name = "Switch to light mode"
