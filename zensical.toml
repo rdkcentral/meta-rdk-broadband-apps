@@ -1,5 +1,9 @@
 [project]
 site_name = "RDK Broadband Apps Toolkit"
+site_url = "https://rdkcentral.github.io/meta-rdk-broadband-apps/"
+site_description = "Get started with the RDK-B Apps Toolkit."
+site_dir = "site"
+docs_dir = "docs"
 
 repo_name = "rdkcentral/meta-rdk-broadband-apps"
 repo_url = "https://github.com/rdkcentral/meta-rdk-broadband-apps"
@@ -19,18 +23,27 @@ nav = [
 
 extra_css = ["stylesheets/extra.css"]
 
+[project.extra]
+generator = false
+
 [project.plugins.macros]
 module_name = "docs/custom_macros"
 
 [project.theme]
 language = "en"
+logo = "lucide/blocks"
 features = [
   "navigation.footer",
   "navigation.sections",
+  "navigation.expand",
+  "navigation.path",
+  "toc.integrate",
   "toc.follow",
   "navigation.top",
   "content.code.copy",
   "content.code.annotate",
+  "content.action.edit", # Edit this page
+  "content.action.view", # View source of this page
   "search.suggest",
   "search.highlight",
   "content.tabs.link",
@@ -45,14 +58,14 @@ code = "Fira Code"
 
 [[project.theme.palette]]
 scheme = "default"
-primary = "deep orange"
-accent = "deep orange"
+primary = "teal"
+accent = "cyan"
 toggle.icon = "lucide/sun"
 toggle.name = "Switch to dark mode"
 
 [[project.theme.palette]]
 scheme = "slate"
-primary = "deep orange"
-accent = "deep orange"
+primary = "cyan"
+accent = "teal"
 toggle.icon = "lucide/moon"
 toggle.name = "Switch to light mode"
