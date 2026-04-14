@@ -1,7 +1,7 @@
 # Developing An OCI Image
 
 !!! danger
-    REFRESH THIS!
+    (Dockerfile, from scratch Vs alpine Vs Debian size tradeoffs / examples, entry point, labels, etc)
 
 This guide provides instructions for building containerized applications for RDK-B.
 

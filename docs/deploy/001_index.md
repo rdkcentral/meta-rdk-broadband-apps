@@ -2,6 +2,7 @@
 
 !!! danger
     BREAK THIS OUT INTO SEPARATE PAGES!
+    TR-369 spec, lifecycle management, terminology (DU, EU, EE), data models
 
 This guide provides walkthroughs for deploying containerized applications for RDK-B devices. 
 

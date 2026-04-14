@@ -1,5 +1,7 @@
 # Compiling & Verifying The Image
 
+!!! danger
+    (verify using hello-rdk-app native build, which will be included as part of the toolkit)
 
 This page provides acceptance testing procedures and reference values for validating the RDK Broadband Apps Toolkit on reference hardware.
 

@@ -1,5 +1,8 @@
 # Setting Up Your RDK Build
 
+!!! danger
+    (yocto, env variables)
+
 This guide provides detailed instructions to integrate the RDK Broadband Apps Toolkit into your RDK-B build.
 
 ## Prerequisites

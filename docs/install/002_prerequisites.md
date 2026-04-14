@@ -1,5 +1,8 @@
 # Device / Hardware Requirements
 
+!!! danger
+    (flash layout, security, mounting the partition as a filesystem, etc)
+
 This page outlines the hardware and storage requirements for devices to run containerized applications.
 
 ## Flash Layout Requirements

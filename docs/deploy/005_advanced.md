@@ -1,6 +1,9 @@
 # Advanced Configurations
 
 !!! danger
+    3 obuspa deployment methods. usp-agent as an app. libuspclient as MTP/UDS socket. 
+
+!!! danger
     BREAK THIS OUT INTO SEPARATE PAGES!
 
 This page documents the data models supported by the RDK Broadband Apps Toolkit for managing the lifecycle of containerized applications. 

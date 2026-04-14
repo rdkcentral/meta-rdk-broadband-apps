@@ -1,5 +1,10 @@
 # RDK Broadband Apps Toolkit
 
+!!! danger
+    (vision, objectives, quick links to high level sections - install, build, deploy, then roadmap table, social links to GitHub repo, issues, discussions, slack channel, points of contact (chair & co-chair of the WG, rdk-m, etc), etc...)
+
+Meta layer to add the Broadband Apps Framework to your existing RDK image.
+
 A Yocto meta-layer to add the Broadband Apps Toolkit to RDK-B builds.
 
 # System Architecture
