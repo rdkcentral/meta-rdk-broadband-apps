@@ -1,4 +1,5 @@
 [project]
+copyright = "Copyright &copy; 2026 RDK Central"
 site_name = "RDK Broadband Apps Toolkit"
 site_url = "https://rdkcentral.github.io/meta-rdk-broadband-apps/"
 site_description = "Get started with the RDK-B Apps Toolkit."
