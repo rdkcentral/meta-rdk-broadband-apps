@@ -92,7 +92,7 @@ MACHINE=bananapi4-rdk-broadband source meta-cmf-bananapi/setup-environment-refbo
 bitbake <your-image>
 ```
 
-## 8. Verifying Layer Integration
+## 8. Verify the Layer Integration
 
 Run the following command and look for `rdkbbapps` in the output. If the layer has been properly added to your build, this command should show the layer path and priority.
 
@@ -100,7 +100,7 @@ Run the following command and look for `rdkbbapps` in the output. If the layer h
 bitbake-layers show-layers
 ```
 
-## 9. Verify Containerisation Technology Configuration
+## 9. Verify the Container Runtime Configuration
 
 Run the following command to ensure you have correctly set your Containerisation Technology (either DAC or prplLCM):
 
