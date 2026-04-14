@@ -1,6 +1,6 @@
-# meta-rdk-broadband-apps
+# RDK Broadband Apps Toolkit
 
-Yocto meta-layer to add the Broadband Apps Toolkit to RDK-B builds.
+A Yocto meta-layer to add the Broadband Apps Toolkit to RDK-B builds.
 
 ## Overview
 

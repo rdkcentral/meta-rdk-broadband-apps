@@ -14,6 +14,30 @@ extra_css = ["stylesheets/extra.css"]
 
 nav = [
   { "Home" = "index.md" },
+  { "Installing The Toolkit" = [
+    { "Toolkit Overview & Architecture" = "install/001_index.md" },
+    { "Device / Hardware Requirements" = "install/002_prerequisites.md" },
+    { "Setting Up Your RDK Build" = "install/003_setup.md" },
+    { "Configuring The Toolkit" = "install/004_configure.md" },
+    { "Compiling & Verifying The Image" = "install/005_compiling.md" },
+    { "Advanced Tooling" = "install/006_advanced.md" }
+  ]},
+  { "Building An App" = [
+    { "App Structure & Pipeline" = "build/001_index.md"},
+    { "Developing An OCI Image" = "build/002_image.md" },
+    { "Compiling & Hosting The App" = "build/003_build_and_push.md" },
+    { "Advanced Workflows" = "build/004_advanced.md" }
+  ]},
+  { "Deploying An App" = [
+    { "Lifecycle Management Overview" = "deploy/001_index.md"},
+    { "Configuring An Execution Environment" = "deploy/002_exec_env.md" },
+    { "Installing An App" = "deploy/003_deployment_unit.md" },
+    { "Launching An App" = "deploy/004_execution_unit.md" },
+    { "Advanced Configurations" = "deploy/005_advanced.md" }
+  ]},
+
+
+
   { "Getting Started" = [
     { "Device Prerequisites" = "device-prerequisites.md" },
     { "Installing the Toolkit" = "installing-toolkit.md" },
