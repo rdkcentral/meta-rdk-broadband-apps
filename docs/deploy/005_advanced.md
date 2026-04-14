@@ -6,11 +6,11 @@
 !!! danger
     BREAK THIS OUT INTO SEPARATE PAGES!
 
-This page documents the data models supported by the RDK Broadband Apps Toolkit for managing the lifecycle of containerized applications. 
+This page documents the data models supported by the RDK Broadband Apps Toolkit for managing the lifecycle of containerised applications. 
 
 ## Overview
 
-The RDK Broadband Apps Toolkit primarily implements the standard TR-369 (USP - User Services Platform) data models for managing, monitoring, and controlling containerized applications on CPE devices, following the Broadband Forum specification for lifecycle management.
+The RDK Broadband Apps Toolkit primarily implements the standard TR-369 (USP - User Services Platform) data models for managing, monitoring, and controlling containerised applications on CPE devices, following the Broadband Forum specification for lifecycle management.
 
 Additionally, provisions have been made to bring feature parity to legacy remote management standards such as TR-069 (CPE WAN Management Protocol (CWMP)) as used by ACS (Auto Configuration Server) solutions. This has been done by defining a **new, custom data model** that can be utilised without requiring support for method invocation or notification events. 
 
@@ -89,7 +89,7 @@ Lifecycle management follows the [Broadband Forum TR-369 USP specification](http
 
 ### Software Modules
 
-[Software Modules](https://usp.technology/specification/#sec:software-modules) provide the framework for managing containerized applications through standardized data model objects.
+[Software Modules](https://usp.technology/specification/#sec:software-modules) provide the framework for managing containerised applications through standardized data model objects.
 
 ### Deployment Units (DUs)
 
@@ -145,7 +145,7 @@ The EE lifecycle follows a state machine with the following states:
 
 ### Application Data Volumes
 
-[Application Data Volumes](https://usp.technology/specification/#sec:application-data-volumes) provide persistent storage for containerized applications, allowing data to survive container restarts and upgrades.
+[Application Data Volumes](https://usp.technology/specification/#sec:application-data-volumes) provide persistent storage for containerised applications, allowing data to survive container restarts and upgrades.
 
 #### Features:
 - Persistent data storage across container lifecycle

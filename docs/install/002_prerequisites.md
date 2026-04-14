@@ -1,6 +1,6 @@
 # Device / Hardware Requirements
 
-This page outlines the hardware and storage requirements for devices to run containerized applications.
+This page outlines the hardware and storage requirements for devices to run containerised applications.
 
 ## Flash Layout Requirements
 

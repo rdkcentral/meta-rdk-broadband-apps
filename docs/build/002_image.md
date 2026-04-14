@@ -3,7 +3,7 @@
 !!! danger
     (Dockerfile, from scratch Vs alpine Vs Debian size tradeoffs / examples, entry point, labels, etc)
 
-This guide provides instructions for building containerized applications for RDK-B.
+This guide provides instructions for building containerised applications for RDK-B.
 
 !!! warning "Documentation In Progress"
     This page is currently under development. Detailed tutorials and examples will be added in future updates.
@@ -12,8 +12,8 @@ This guide provides instructions for building containerized applications for RDK
 
 The RDK Broadband Apps Toolkit supports two types of deployable artifacts:
 
-- **OCI Images** - A packaged, distributable form of a containerized application.
-- **OCI Bundles** - An unpacked, executable form of a containerized application, ready to be run by a container runtime.
+- **OCI Images** - A packaged, distributable form of a containerised application.
+- **OCI Bundles** - An unpacked, executable form of a containerised application, ready to be run by a container runtime.
 
 ## Contributing
 
