@@ -73,8 +73,8 @@ code = "Fira Code"
 
 [[project.theme.palette]]
 scheme = "default"
-primary = "teal"
-accent = "cyan"
+primary = "cyan"
+accent = "teal"
 toggle.icon = "lucide/sun"
 toggle.name = "Switch to dark mode"
 
