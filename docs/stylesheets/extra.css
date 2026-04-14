@@ -2,3 +2,42 @@
 .md-grid {
     max-width: 1440px;
 }
+
+/* Heading sizes */
+.md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4, .md-typeset h5, .md-typeset h6 {
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.md-typeset h1 {
+  font-size: 1.5em;
+}
+
+.md-typeset h2 {
+  font-size: 1.25em;
+}
+
+.md-typeset h3 {
+  font-size: 1.125em;
+}
+
+.md-typeset h4 {
+  font-size: 1em;
+}
+
+.md-typeset h5 {
+  font-size: 0.875em;
+}
+
+.md-typeset h6 {
+  font-size: 0.75em;
+}
+
+h1:not(:first-of-type),
+h2:not(:first-of-type),
+h3:not(:first-of-type),
+h4:not(:first-of-type),
+h5:not(:first-of-type),
+h6:not(:first-of-type) {
+  margin-top: 1.5em;
+}
