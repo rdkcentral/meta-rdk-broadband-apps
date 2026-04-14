@@ -6,7 +6,6 @@ This wiki provides a guide for RDK-Broadband users to:
 2. Build standards-compliant, cross-platform **[Apps &rarr;](build/001_index.md)**
 3. Deploy Apps to in-field devices and manage **[App Lifecycles &rarr;](deploy/001_index.md)**
 
-<br>
 # Need To Reach Out?
 
 - **Raise An Issue**: https://github.com/rdkcentral/meta-rdk-broadband-apps/issues
