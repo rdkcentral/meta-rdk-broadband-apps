@@ -31,7 +31,6 @@ module_name = "docs/custom_macros"
 
 [project.theme]
 language = "en"
-logo = "lucide/blocks"
 features = [
   "navigation.footer",
   "navigation.sections",
@@ -50,6 +49,7 @@ features = [
 ]
 
 [project.theme.icon]
+logo = "lucide/blocks"
 repo = "fontawesome/brands/github"
 
 [project.theme.font]
