@@ -10,6 +10,8 @@ repo_url = "https://github.com/rdkcentral/meta-rdk-broadband-apps"
 
 edit_uri = "edit/main/docs/"
 
+extra_css = ["stylesheets/extra.css"]
+
 nav = [
   { "Home" = "index.md" },
   { "Getting Started" = [
@@ -22,8 +24,6 @@ nav = [
   { "Acceptance Testing" = "acceptance-testing.md" },
   { "Data Models" = "data-models.md" },
 ]
-
-extra_css = ["stylesheets/extra.css"]
 
 [project.extra]
 generator = false
