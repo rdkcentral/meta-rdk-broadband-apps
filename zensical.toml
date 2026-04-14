@@ -48,8 +48,9 @@ language = "en"
 features = [
   "navigation.footer",
   "navigation.sections",
-  "navigation.expand",
   "navigation.path",
+  "navigation.tabs",
+  "navigation.tabs.sticky",
   "toc.integrate",
   "toc.follow",
   "navigation.top",
