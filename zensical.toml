@@ -8,6 +8,8 @@ docs_dir = "docs"
 repo_name = "rdkcentral/meta-rdk-broadband-apps"
 repo_url = "https://github.com/rdkcentral/meta-rdk-broadband-apps"
 
+edit_uri = "edit/main/docs/"
+
 nav = [
   { "Home" = "index.md" },
   { "Getting Started" = [
@@ -42,7 +44,6 @@ features = [
   "content.code.copy",
   "content.code.annotate",
   "content.action.edit", # Edit this page
-  "content.action.view", # View source of this page
   "search.suggest",
   "search.highlight",
   "content.tabs.link",
