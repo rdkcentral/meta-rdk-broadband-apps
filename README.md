@@ -5,7 +5,7 @@ Meta layer to add the Broadband Apps Framework to your existing RDK image.
 [![Read The Wiki](https://img.shields.io/badge/Read_The_Wiki-6F3DFA.svg?logo=firefox)](https://rdkcentral.github.io/meta-rdk-broadband-apps/)
 
 ### Live Status Updates
-[![Deploy Zensical to GitHub Pages](https://github.com/rdkcentral/meta-rdk-broadband-apps/actions/workflows/deploy_docs.yml/badge.svg)](https://github.com/rdkcentral/meta-rdk-broadband-apps/actions/workflows/deploy_docs.yml)
+[![Deploy Docs to GitHub Pages](https://github.com/rdkcentral/meta-rdk-broadband-apps/actions/workflows/deploy_docs.yml/badge.svg)](https://github.com/rdkcentral/meta-rdk-broadband-apps/actions/workflows/deploy_docs.yml)
 
 [![GitHub milestone details](https://img.shields.io/github/milestones/progress-percent/rdkcentral/meta-rdk-broadband-apps/2)](https://github.com/rdkcentral/meta-rdk-broadband-apps/milestone/2)
 
