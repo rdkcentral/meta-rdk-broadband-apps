@@ -6,7 +6,7 @@ This guide provides detailed instructions to integrate the RDK Broadband Apps To
 - An existing RDK-B Yocto project
 - Familiarity with BitBake, Yocto layer management, and the `repo` tool
 - RDK-B Ready Hardware
-    - NOTE: The recommended reference hardware is the `Banana Pi R4`
+    - NOTE: The `Banana Pi R4` is used as the reference hardware in this wiki.
 
 
 ## 1. Add `meta-rdk-broadband-apps` to your `repo` Manifest

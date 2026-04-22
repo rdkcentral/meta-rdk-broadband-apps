@@ -19,9 +19,8 @@ nav = [
     { "Toolkit Overview & Architecture" = "install/001_index.md" },
     { "Device / Hardware Requirements" = "install/002_prerequisites.md" },
     { "Setting Up Your RDK Build" = "install/003_setup.md" },
-    { "Configuring The Toolkit" = "install/004_configure.md" },
-    { "Compiling & Verifying The Image" = "install/005_compiling.md" },
-    { "Advanced Tooling" = "install/006_advanced.md" }
+    { "Verifying The Toolkit" = "install/004_verifying.md" },
+    { "Advanced Configurations" = "install/005_advanced.md" }
   ]},
   { "2 - Building An App" = [
     { "App Structure & Pipeline" = "build/001_index.md"},
