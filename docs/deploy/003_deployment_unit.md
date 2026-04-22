@@ -1,4 +1,23 @@
 # Installing An App
 
 !!! danger
-    (install du: bacli Vs USP controller OR alt models: dmcli Vs webpa/ACS. Give full data model settings such as network and port settings - links to discussions to figure out how to handle this, validate with hello-rdk-app)
+    Add info on the install du command: bacli Vs USP controller OR alt models: dmcli Vs webpa/ACS. 
+
+This section covers the following steps:
+
+- **Install** - Installing a new App (Deployment Unit) on a device
+- **Update** - Updating an installed App to a different version
+- **Uninstall** - Deleting an App from the device
+
+
+## Installing
+```bash
+Device.SoftwareModules.InstallDU()
+```
+
+## Updating
+
+## Uninstalling
+```bash
+Device.SoftwareModules.DeploymentUnit.1.Uninstall()
+```
