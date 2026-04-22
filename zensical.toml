@@ -23,7 +23,7 @@ nav = [
     { "Advanced Configurations" = "install/005_advanced.md" }
   ]},
   { "2 - Building An App" = [
-    { "App Structure & Pipeline" = "build/001_index.md"},
+    { "App Architecture & Build Flow" = "build/001_index.md"},
     { "Defining A Dockerfile For The OCI Image" = "build/002_dockerfile.md" },
     { "Compiling & Hosting The OCI Image" = "build/003_oci_image.md" },
     { "Advanced Workflows" = "build/004_advanced.md" }
