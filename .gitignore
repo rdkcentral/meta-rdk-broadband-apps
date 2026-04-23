@@ -1,5 +1,4 @@
-# zensical generated site
-site/
+# Yocto build artifacts / external layers
 /.repo/
 /meta-amx/
 /meta-lcm/
@@ -13,3 +12,7 @@ __pycache__/
 
 # macOS system files
 .DS_Store
+
+# Github Pages (Wiki) site and build artifacts
+site/
+docs/__pycache__/

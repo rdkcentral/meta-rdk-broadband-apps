@@ -1,8 +1,12 @@
-# Acceptance Testing
+# Verifying The Toolkit
 
 This page provides acceptance testing procedures and reference values for validating the RDK Broadband Apps Toolkit on reference hardware.
 
-## Banana Pi R4 with RDK-B 2025q2
+!!! danger "TODO"
+    Add instructions and screenshots to verify the installation using the `hello-rdk-app`, which should be pre-installed in the firmware as part of the toolkit.
+
+!!! tip 
+    The below verification steps were conducted on the `Banana Pi R4` running the `2025q2` version of RDK-B.
 
 === "DAC"
 
