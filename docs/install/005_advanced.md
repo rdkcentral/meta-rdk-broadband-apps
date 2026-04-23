@@ -5,7 +5,9 @@ This page provides instructions on how to further configure your toolkit to suit
 ## Modifying the API Gateway 
 
 !!! danger "TODO"
+    ...
 
 ## Pre-installing Default Apps
 
 !!! danger "TODO"
+    ...

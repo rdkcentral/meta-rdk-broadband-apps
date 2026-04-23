@@ -4,7 +4,7 @@ This page outlines the hardware and storage requirements for devices to run cont
 
 ## Flash Layout Requirements
 
-To support containerised applications, devices must support a dedicated **writeable** and **encrypted** flash partition as specified below:
+To support containerised applications, devices must support a dedicated **writable** and **encrypted** flash partition as specified below:
 
 | Partition | Mount Point | Type | Security | Minimum Size | Purpose |
 |-----------|-------------|------|----------|--------------|---------|
@@ -60,7 +60,7 @@ The device must allocate sufficient flash space for the `/apps` partition based 
 - Log size per app & retention policies
 
 !!! note "Individual App Quotas"
-    To define individual runtime quotas for each app, such as Allocated Memory and Allocated Disk Space, see [Advanced Configurations](deploy/005_advanced).
+    To define individual runtime quotas for each app, such as Allocated Memory and Allocated Disk Space, see [Advanced Configurations](../deploy/005_advanced.md).
 
 ## Application Storage Security
 

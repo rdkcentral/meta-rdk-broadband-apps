@@ -11,6 +11,4 @@ This wiki provides a guide for RDK-Broadband users to:
 
 - **Raise An Issue**: https://github.com/rdkcentral/meta-rdk-broadband-apps/issues
 - **Start A Discussion**: https://github.com/rdkcentral/meta-rdk-broadband-apps/discussions
-- **Request To Join The Working Group**: sundar_subramanian@comcast.com
 - **Drop A Message On The Working Group Slack**: https://rdkm.slack.com/archives/C08M54KULC8
-- **Drop An Email To The Working Group Chair / Co-Chair**: kartik_gohil@comcast.com / dave.chapman@consultateci442.com

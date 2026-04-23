@@ -33,11 +33,11 @@
   font-size: 0.75em;
 }
 
-h1:not(:first-of-type),
-h2:not(:first-of-type),
-h3:not(:first-of-type),
-h4:not(:first-of-type),
-h5:not(:first-of-type),
-h6:not(:first-of-type) {
+.md-typeset h1:not(:first-of-type),
+.md-typeset h2:not(:first-of-type),
+.md-typeset h3:not(:first-of-type),
+.md-typeset h4:not(:first-of-type),
+.md-typeset h5:not(:first-of-type),
+.md-typeset h6:not(:first-of-type) {
   margin-top: 1.5em;
 }
