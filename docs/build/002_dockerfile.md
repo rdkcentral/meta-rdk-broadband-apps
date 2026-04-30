@@ -93,7 +93,7 @@ ENTRYPOINT ["/app/my-app"]
 
 ## OCI Metadata Labels
 
-Include standard labels in your dockerfile:
+Include standard labels in your Dockerfile:
 
 ```dockerfile
 LABEL org.opencontainers.image.version="1.2.3"

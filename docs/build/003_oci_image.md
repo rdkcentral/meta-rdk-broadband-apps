@@ -51,9 +51,9 @@ docker buildx build \
 
 ### Using Buildx for Multi-Arch
 
-```bash
-docker/setup-buildx-action
-docker/setup-qemu-action
+```yaml
+- uses: docker/setup-qemu-action@v3
+- uses: docker/setup-buildx-action@v3
 ```
 
 ## Registry: GitHub Container Registry (GHCR)
