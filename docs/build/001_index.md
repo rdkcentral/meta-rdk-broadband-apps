@@ -1,5 +1,14 @@
 # App Architecture & Build Flow
 
+## Summary
+
+This guide defines:
+
+- How to [build OCI images &rarr;](002_dockerfile.md)
+- How to [package RDK-B apps &rarr;](003_oci_image.md)
+- How to [deploy via CI/CD &rarr;](003_oci_image.md)
+- How to [optimize for production &rarr;](004_advanced.md)
+
 ## Overview
 
 RDK Broadband (RDK-B) applications designed for **prplLCM** and **Dobby** are packaged as **OCI (Open Container Initiative) images**.
