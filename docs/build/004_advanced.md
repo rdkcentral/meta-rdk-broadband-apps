@@ -13,10 +13,10 @@ RDK devices vary:
 ## Manifest Creation
 
 ```bash
-docker manifest create app:1.2.3 \
-  app:arm64 app:armv7 app:amd64
+docker manifest create ghcr.io/org/app:1.2.3 \
+  ghcr.io/org/app:arm64-1.2.3 ghcr.io/org/app:armv7-1.2.3 ghcr.io/org/app:amd64-1.2.3
 
-docker manifest push app:1.2.3
+docker manifest push ghcr.io/org/app:1.2.3
 ```
 
 ## QEMU Emulation

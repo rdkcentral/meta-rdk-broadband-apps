@@ -89,8 +89,8 @@ ghcr.io/org/app:1.2.3
 A final manifest combines all architectures:
 
 ```bash
-docker manifest create app:1.2.3 arm64 armv7 amd64
-docker manifest push app:1.2.3
+docker manifest create ghcr.io/org/app:1.2.3 ghcr.io/org/app:arm64-1.2.3 ghcr.io/org/app:armv7-1.2.3 ghcr.io/org/app:amd64-1.2.3
+docker manifest push ghcr.io/org/app:1.2.3
 ```
 
 This allows you to automatically pull the correct architecture:
