@@ -4,7 +4,7 @@
 
 This section explains how to:
 
-- Cross-compile applications
+- Cross-compile applications (using `musl` for static `libc` bindings)
 - Build OCI images
 - Publish to container registries
 
@@ -12,7 +12,7 @@ This section explains how to:
 
 ### Example Targets
 
-| Architecture | Target Triple |
+| Architecture | Target Triple (using `musl`) |
 |---|---|
 | ARM64 | aarch64-unknown-linux-musl |
 | ARMv7 | armv7-unknown-linux-musleabihf |
@@ -34,12 +34,15 @@ cargo build --release --target aarch64-unknown-linux-musl
 ## CI/CD Workflow (GitHub Actions)
 
 ### Key Stages
-**1. Checkout code**
-**2. Install dependencies**
-**3. Build application**
-**4. Run tests**
-**5. Build OCI image**
-**6. Push to registry**
+
+```mermaid
+flowchart TD;
+    A["1. Checkout code"] --> B["2. Install dependencies"];
+    B --> C["3. Build application"];
+    C --> D["4. Run tests"];
+    D --> E["5. Build OCI image"];
+    E --> F["6. Push to registry"];
+```
 
 ### Build & Push Example
 
@@ -83,19 +86,11 @@ docker push ghcr.io/org/app:arm64
 
 ## Automation Options
 
-### GitHub Actions (Recommended)
-
-- Native integration
-- Easy secrets management
-
-### Jenkins
-
-- More customizable pipelines
-
-### Python Scripts
-
-- Lightweight automation
-- Useful for local builds
+| Option | Pros |
+|---|---|
+| **GitHub Actions (Recommended)** | - Native integration<br>- Easy secrets management |
+| Jenkins | - More customizable pipelines |
+| Python Scripts | - Lightweight automation<br>- Useful for local builds |
 
 ## Image Labels in CI
 

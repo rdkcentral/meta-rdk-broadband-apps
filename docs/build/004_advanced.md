@@ -60,10 +60,10 @@ strip target/release/my-app
 
 | Feature | Alpine | Scratch |
 |---|---|---|
-| Size | ~5MB | ~0MB |
-| Debugging | Easier | Hard |
-| Security | Good | Best |
-| Requirements | Dynamic OK | Static only |
+| Size | ~5MB | **~0MB** |
+| Debugging | **Easier (Terminal)** | Hard |
+| Security | Good | **Best** |
+| 3rd Party Dependencies | **Installable via Package Manager** | Must be compiled from scratch |
 
 ## GitHub Actions Optimizations
 

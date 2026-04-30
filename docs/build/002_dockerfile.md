@@ -12,14 +12,9 @@ This guide defines best practices for creating Dockerfiles for RDK-B containeriz
 FROM scratch
 ```
 
-Pros:
-
-- Minimal size
-- No attack surface
-
-Cons:
-
-- Requires **fully static binaries**
+| Pros | Cons|
+|---|---|
+| - Minimal size<br>- No attack surface | - Requires **fully static binaries** |
 
 ### Option 2: `FROM alpine` (Minimal Linux base, much smaller than Debian)
 
@@ -27,14 +22,9 @@ Cons:
 FROM alpine:3.20
 ```
 
-Pros:
-
-- Small (~5MB)
-- Includes package manager
-
-Cons:
-
-- Uses **musl libc** (not glibc)
+| Pros | Cons|
+|---|---|
+| - Small (~5MB)<br>- Includes package manager | - Uses **musl libc** (not glibc) |
 
 ## Static Linking with musl
 
@@ -103,7 +93,7 @@ ENTRYPOINT ["/app/my-app"]
 
 ## OCI Metadata Labels
 
-Include standard labels:
+Include standard labels in your dockerfile:
 
 ```dockerfile
 LABEL org.opencontainers.image.version="1.2.3"

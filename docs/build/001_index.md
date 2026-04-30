@@ -4,10 +4,10 @@
 
 This guide defines:
 
-- How to [build OCI images &rarr;](002_dockerfile.md)
-- How to [package RDK-B apps &rarr;](003_oci_image.md)
-- How to [deploy via CI/CD &rarr;](003_oci_image.md)
-- How to [optimize for production &rarr;](004_advanced.md)
+- How to [**build OCI images &rarr;**](002_dockerfile.md)
+- How to [**package RDK-B apps &rarr;**](003_oci_image.md)
+- How to [**deploy via CI/CD &rarr;**](003_oci_image.md)
+- How to [**optimize for production &rarr;**](004_advanced.md)
 
 ## Overview
 
@@ -22,9 +22,9 @@ An OCI image is a standardized container format that includes:
 
 These images are:
 
-- Built once (cross-platform if needed)
-- Stored in a container registry (e.g., GHCR)
-- Pulled and executed by container runtimes like prplLCM or DAC
+- **Built once** (cross-platform if needed)
+- Stored in a **container registry** (e.g., GitHub Container Registry (GHCR))
+- **Pulled** and executed by container runtimes like prplLCM or DAC
 
 ## High-Level Architecture
 
@@ -63,6 +63,7 @@ APP_VERSION=$(git describe --tags --exact-match HEAD | sed 's/^v//')
 ```
 
 Used for:
+
 - Image tagging
 - OCI metadata labels
 
@@ -92,13 +93,11 @@ docker manifest create app:1.2.3 arm64 armv7 amd64
 docker manifest push app:1.2.3
 ```
 
-This allows:
+This allows you to automatically pull the correct architecture:
 
 ```bash
 docker pull app:1.2.3
 ```
-
-→ Automatically pulls correct architecture
 
 ## Key Takeaways
 
