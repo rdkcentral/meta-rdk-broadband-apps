@@ -12,20 +12,15 @@ This section explains how to:
 
 ### Example Targets
 
-| Architecture | Target Triple (using `musl`) |
-|---|---|
-| ARM64 | aarch64-unknown-linux-musl |
-| ARMv7 | armv7-unknown-linux-musleabihf |
-| AMD64 | x86_64-unknown-linux-musl |
-
-### Installing Toolchains
-```bash
-sudo apt-get install gcc-aarch64-linux-gnu
-sudo apt-get install gcc-arm-linux-gnueabihf
-sudo apt-get install musl-tools
-```
+| Architecture | Target Triple (using `musl`) | Cross-Compilier | Env Variable |
+|---|---|---|---|
+| `arm64` | `aarch64-unknown-linux-musl` | `sudo apt-get install -y gcc-aarch64-linux-gnu` | `export CARGO_TARGET_AARCH64_UNKNOWN_LINUX_MUSL_LINKER=aarch64-linux-gnu-gcc` |
+| `armv7` | `armv7-unknown-linux-musleabihf` | `sudo apt-get install -y gcc-arm-linux-gnueabihf` | `export CARGO_TARGET_ARMV7_UNKNOWN_LINUX_MUSLEABIHF_LINKER=arm-linux-gnueabihf-gcc` |
+| `amd64` | `x86_64-unknown-linux-musl` | `sudo apt-get install -y musl-tools` | `export CARGO_TARGET_X86_64_UNKNOWN_LINUX_MUSL_LINKER=musl-gcc` |
 
 ### Rust Build Example
+
+This uses the target triple for the target arch:
 
 ```bash
 cargo build --release --target aarch64-unknown-linux-musl
