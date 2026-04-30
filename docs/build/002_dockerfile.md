@@ -32,7 +32,7 @@ To support `scratch`, compile binaries statically:
 
 ### Rust Example
 
-```bash
+```yaml
 target: x86_64-unknown-linux-musl
 ```
 
