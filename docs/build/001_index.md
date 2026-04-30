@@ -15,7 +15,7 @@ These images are:
 
 - Built once (cross-platform if needed)
 - Stored in a container registry (e.g., GHCR)
-- Pulled and executed by container runtimes like Dobby
+- Pulled and executed by container runtimes like prplLCM or DAC
 
 ## High-Level Architecture
 

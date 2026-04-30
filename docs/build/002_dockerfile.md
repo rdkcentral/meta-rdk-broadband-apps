@@ -1,15 +1,120 @@
 # Defining A Dockerfile For The OCI Image
 
-This guide provides instructions for building containerised applications for RDK-B.
+## Overview
 
-!!! tip "Prerequisites"
-    Before building apps, ensure you have a built RDK image with either DAC or LCM support. 
-    See the [Installing the Toolkit](../install/001_index.md) guide for full details.
+This guide defines best practices for creating Dockerfiles for RDK-B containerized applications.
 
-!!! danger "TODO"
-    Add instructions for setting up Dockerfiles, from alpine as standard, musl for static linking, etc., CMD + entry point
+## Base Image Selection
 
+### Option 1: `FROM scratch` (Recommended for production)
 
+```dockerfile
+FROM scratch
+```
 
+Pros:
 
+- Minimal size
+- No attack surface
 
+Cons:
+
+- Requires **fully static binaries**
+
+### Option 2: `FROM alpine` (Minimal Linux base, much smaller than Debian)
+
+```dockerfile
+FROM alpine:3.20
+```
+
+Pros:
+
+- Small (~5MB)
+- Includes package manager
+
+Cons:
+
+- Uses **musl libc** (not glibc)
+
+## Static Linking with musl
+
+To support `scratch`, compile binaries statically:
+
+### Rust Example
+
+```bash
+target: x86_64-unknown-linux-musl
+```
+
+Install toolchain:
+
+```bash
+rustup target add x86_64-unknown-linux-musl
+```
+
+### Minimal Runtime Dockerfile Example
+
+```dockerfile
+FROM scratch
+
+LABEL org.opencontainers.image.source="https://github.com/org/repo"
+LABEL org.opencontainers.image.description="RDK-B OCI Application"
+
+WORKDIR /app
+
+COPY target/release/my-app /app/my-app
+COPY templates /app/templates
+COPY static /app/static
+
+EXPOSE 8080
+
+CMD ["/app/my-app"]
+```
+
+## ENTRYPOINT vs CMD
+
+### CMD (Recommended)
+
+```dockerfile
+CMD ["/app/my-app"]
+```
+
+- Default command
+- Easily overridden
+
+### ENTRYPOINT (Optional)
+
+```dockerfile
+ENTRYPOINT ["/app/my-app"]
+```
+
+- Harder to override
+- Good for fixed-function containers
+
+## File Layout Best Practices
+
+```text
+/app
+ ├── binary
+ ├── templates/
+ ├── static/
+ └── config/
+```
+
+## OCI Metadata Labels
+
+Include standard labels:
+
+```dockerfile
+LABEL org.opencontainers.image.version="1.2.3"
+LABEL org.opencontainers.image.revision="abc1234"
+LABEL org.opencontainers.image.source="https://github.com/org/repo"
+LABEL org.opencontainers.image.description="RDK App"
+```
+
+## Key Recommendations
+
+- Prefer `FROM scratch` + static binaries
+- Use `alpine` only if dynamic dependencies are required
+- Keep images **small (<50MB ideally)**
+- Avoid unnecessary tools (curl, bash, etc.)
