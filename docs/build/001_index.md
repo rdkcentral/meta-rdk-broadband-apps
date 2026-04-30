@@ -96,7 +96,7 @@ docker manifest push ghcr.io/org/app:1.2.3
 This allows you to automatically pull the correct architecture:
 
 ```bash
-docker pull app:1.2.3
+docker pull ghcr.io/org/app:1.2.3
 ```
 
 ## Key Takeaways
