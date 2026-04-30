@@ -12,7 +12,7 @@ This section explains how to:
 
 ### Example Targets
 
-| Architecture | Target Triple (using `musl`) | Cross-Compilier | Env Variable |
+| Architecture | Target Triple (using `musl`) | Cross-Compiler | Env Variable |
 |---|---|---|---|
 | `arm64` | `aarch64-unknown-linux-musl` | `sudo apt-get install -y gcc-aarch64-linux-gnu` | `export CARGO_TARGET_AARCH64_UNKNOWN_LINUX_MUSL_LINKER=aarch64-linux-gnu-gcc` |
 | `armv7` | `armv7-unknown-linux-musleabihf` | `sudo apt-get install -y gcc-arm-linux-gnueabihf` | `export CARGO_TARGET_ARMV7_UNKNOWN_LINUX_MUSLEABIHF_LINKER=arm-linux-gnueabihf-gcc` |
