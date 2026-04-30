@@ -36,11 +36,15 @@ Smallest possible image
 ### 2. Multi-stage builds
 
 ```dockerfile
-FROM rust:latest AS builder
+FROM rust:1.78 AS builder
+WORKDIR /app
+
+COPY Cargo.toml Cargo.lock ./
+COPY src ./src
 RUN cargo build --release
 
 FROM scratch
-COPY --from=builder /app/bin /app/bin
+COPY --from=builder /app/target/release/my-app /my-app
 ```
 
 ### 3. Strip binaries
