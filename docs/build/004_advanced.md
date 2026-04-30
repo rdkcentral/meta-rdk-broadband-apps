@@ -45,6 +45,7 @@ RUN cargo build --release
 
 FROM scratch
 COPY --from=builder /app/target/release/my-app /my-app
+ENTRYPOINT ["/my-app"]
 ```
 
 ### 3. Strip binaries
