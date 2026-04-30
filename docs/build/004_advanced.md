@@ -24,7 +24,7 @@ docker manifest push ghcr.io/org/app:1.2.3
 Used when building non-native architectures:
 
 ```yaml
-- uses: docker/setup-qemu-action@v4
+- uses: docker/setup-qemu-action@v3
 ```
 
 ## Image Size Optimization
@@ -45,6 +45,7 @@ RUN cargo build --release
 
 FROM scratch
 COPY --from=builder /app/target/release/my-app /my-app
+ENTRYPOINT ["/my-app"]
 ```
 
 ### 3. Strip binaries
