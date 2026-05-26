@@ -1,9 +1,43 @@
-/* Make page wider that default so tables etc fit better */
+/* Make page wider than default so tables etc fit better */
 .md-grid {
-    max-width: 70rem;
+    max-width: 1440px;
 }
 
-/* Slightly smaller than default */
-.md-typeset {
-    font-size: .75rem;
+/* Heading sizes */
+.md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4, .md-typeset h5, .md-typeset h6 {
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.md-typeset h1 {
+  font-size: 1.5em;
+}
+
+.md-typeset h2 {
+  font-size: 1.25em;
+}
+
+.md-typeset h3 {
+  font-size: 1.125em;
+}
+
+.md-typeset h4 {
+  font-size: 1em;
+}
+
+.md-typeset h5 {
+  font-size: 0.875em;
+}
+
+.md-typeset h6 {
+  font-size: 0.75em;
+}
+
+.md-typeset h1:not(:first-of-type),
+.md-typeset h2:not(:first-of-type),
+.md-typeset h3:not(:first-of-type),
+.md-typeset h4:not(:first-of-type),
+.md-typeset h5:not(:first-of-type),
+.md-typeset h6:not(:first-of-type) {
+  margin-top: 1.5em;
 }

@@ -1,4 +1,4 @@
-# Installing the Toolkit
+# Setting Up Your RDK Build
 
 This guide provides detailed instructions to integrate the RDK Broadband Apps Toolkit into your RDK-B build.
 
@@ -6,7 +6,7 @@ This guide provides detailed instructions to integrate the RDK Broadband Apps To
 - An existing RDK-B Yocto project
 - Familiarity with BitBake, Yocto layer management, and the `repo` tool
 - RDK-B Ready Hardware
-    - NOTE: The recommended reference hardware is the `Banana Pi R4`
+    - NOTE: The `Banana Pi R4` is used as the reference hardware in this wiki.
 
 
 ## 1. Add `meta-rdk-broadband-apps` to your `repo` Manifest
@@ -92,7 +92,7 @@ MACHINE=bananapi4-rdk-broadband source meta-cmf-bananapi/setup-environment-refbo
 bitbake <your-image>
 ```
 
-## 8. Verifying Layer Integration
+## 8. Verify the Layer Integration
 
 Run the following command and look for `rdkbbapps` in the output. If the layer has been properly added to your build, this command should show the layer path and priority.
 
@@ -100,9 +100,9 @@ Run the following command and look for `rdkbbapps` in the output. If the layer h
 bitbake-layers show-layers
 ```
 
-## 9. Verify Containerization Technology Configuration
+## 9. Verify the Container Runtime Configuration
 
-Run the following command to ensure you have correctly set your Containerization Technology (either DAC or prplLCM):
+Run the following command to ensure you have correctly set your Containerisation Technology (either DAC or prplLCM):
 
 ```bash
 bitbake -e | grep "^RDK_BB_APPS_TOOLKIT_CRUNTIME="
