@@ -1,23 +1,44 @@
 [project]
+copyright = "Copyright &copy; 2026 RDK Management"
 site_name = "RDK Broadband Apps Toolkit"
+site_url = "https://rdkcentral.github.io/meta-rdk-broadband-apps/"
+site_description = "Get started with the RDK-B Apps Toolkit."
+site_dir = "site"
+docs_dir = "docs"
 
 repo_name = "rdkcentral/meta-rdk-broadband-apps"
 repo_url = "https://github.com/rdkcentral/meta-rdk-broadband-apps"
 
-nav = [
-  { "Home" = "index.md" },
-  { "Getting Started" = [
-    { "Device Prerequisites" = "device-prerequisites.md" },
-    { "Installing the Toolkit" = "installing-toolkit.md" },
-    { "Building Apps" = "building-apps.md" },
-    { "Deploying Apps" = "deploying-apps.md" },
-  ]},
-  { "System Architecture" = "architecture.md" },
-  { "Acceptance Testing" = "acceptance-testing.md" },
-  { "Data Models" = "data-models.md" },
-]
+edit_uri = "edit/main/docs/"
 
 extra_css = ["stylesheets/extra.css"]
+
+nav = [
+  { "Home" = "index.md" },
+  { "1 - Installing The Toolkit" = [
+    { "Toolkit Overview & Architecture" = "install/001_index.md" },
+    { "Device / Hardware Requirements" = "install/002_prerequisites.md" },
+    { "Setting Up Your RDK Build" = "install/003_setup.md" },
+    { "Verifying The Toolkit" = "install/004_verifying.md" },
+    { "Advanced Configurations" = "install/005_advanced.md" }
+  ]},
+  { "2 - Building An App" = [
+    { "App Architecture & Build Flow" = "build/001_index.md"},
+    { "Defining A Dockerfile For The OCI Image" = "build/002_dockerfile.md" },
+    { "Compiling & Hosting The OCI Image" = "build/003_oci_image.md" },
+    { "Advanced Workflows" = "build/004_advanced.md" }
+  ]},
+  { "3 - Deploying An App" = [
+    { "Lifecycle Management Overview" = "deploy/001_index.md"},
+    { "Configuring An Execution Environment" = "deploy/002_exec_env.md" },
+    { "Installing An App" = "deploy/003_deployment_unit.md" },
+    { "Launching An App" = "deploy/004_execution_unit.md" },
+    { "Advanced Configurations" = "deploy/005_advanced.md" }
+  ]},
+]
+
+[project.extra]
+generator = false
 
 [project.plugins.macros]
 module_name = "docs/custom_macros"
@@ -27,16 +48,22 @@ language = "en"
 features = [
   "navigation.footer",
   "navigation.sections",
+  "navigation.path",
+  "navigation.tabs",
+  "navigation.tabs.sticky",
+  "toc.integrate",
   "toc.follow",
   "navigation.top",
   "content.code.copy",
   "content.code.annotate",
+  "content.action.edit", # Edit this page
   "search.suggest",
   "search.highlight",
   "content.tabs.link",
 ]
 
 [project.theme.icon]
+logo = "lucide/blocks"
 repo = "fontawesome/brands/github"
 
 [project.theme.font]
@@ -45,14 +72,14 @@ code = "Fira Code"
 
 [[project.theme.palette]]
 scheme = "default"
-primary = "deep orange"
-accent = "deep orange"
+primary = "cyan"
+accent = "teal"
 toggle.icon = "lucide/sun"
 toggle.name = "Switch to dark mode"
 
 [[project.theme.palette]]
 scheme = "slate"
-primary = "deep orange"
-accent = "deep orange"
+primary = "cyan"
+accent = "teal"
 toggle.icon = "lucide/moon"
 toggle.name = "Switch to light mode"
